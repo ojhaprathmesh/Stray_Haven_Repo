@@ -1,4 +1,4 @@
-package app.main.activity;
+package app.main.activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

@@ -35,6 +35,7 @@
         tools:ignore="TextSizeCheck" />
 
     <ImageButton
+        android:id="@+id/notification"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:background="@android:color/transparent"
@@ -44,6 +45,7 @@
         android:src="@drawable/notification_icon" />
 
     <ImageButton
+        android:id="@+id/profile"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:background="@android:color/transparent"

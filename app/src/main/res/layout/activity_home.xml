@@ -5,14 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.HomeActivity">
+    tools:context=".activities.HomeActivity">
 
     <!-- Menu Component -->
-    <include
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/menu_component"
-        layout="@layout/comp_menu"
+        android:name="app.main.fragments.MenuFragment"
         android:layout_width="0dp"
-        android:layout_margin="20dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,9 +21,9 @@
     <include
         android:id="@+id/top_divider"
         layout="@layout/comp_horizontal_line"
-        android:layout_marginTop="20dp"
         android:layout_width="0dp"
         android:layout_height="2dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/menu_component" />
