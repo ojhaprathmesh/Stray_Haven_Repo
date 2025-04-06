@@ -1,22 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.HomeActivity">
 
     <!-- Menu Component -->
-    <include layout="@layout/comp_menu" />
+    <include
+        android:id="@+id/menu_component"
+        layout="@layout/comp_menu"
+        android:layout_width="0dp"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <include layout="@layout/comp_horizontal_line" />
+    <!-- Divider -->
+    <include
+        android:id="@+id/top_divider"
+        layout="@layout/comp_horizontal_line"
+        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menu_component" />
 
+    <!-- Scrollable Content -->
     <ScrollView
         android:id="@+id/scrollable_home"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_divider">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,41 +46,22 @@
             android:orientation="vertical">
 
             <HorizontalScrollView
-                android:id="@+id/story_tray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fillViewport="true"
-                android:paddingStart="20dp"
+                android:paddingHorizontal="20dp"
                 android:scrollbars="none"
                 tools:ignore="RtlSymmetry">
 
+                <!-- Container for dynamically added story components-->
                 <LinearLayout
+                    android:id="@+id/story_tray"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <include layout="@layout/comp_story" />
-
-                    <include layout="@layout/comp_story" />
-
-                    <include layout="@layout/comp_story" />
-
-                    <include layout="@layout/comp_story" />
-
-                    <include layout="@layout/comp_story" />
-
-                    <include layout="@layout/comp_story" />
-
-                    <include layout="@layout/comp_story" />
-
-                    <include layout="@layout/comp_story" />
-
-                    <include layout="@layout/comp_story" />
-                </LinearLayout>
+                    android:orientation="horizontal" />
             </HorizontalScrollView>
 
             <include layout="@layout/comp_horizontal_line" />
-
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
