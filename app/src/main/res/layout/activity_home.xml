@@ -7,11 +7,14 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!-- Menu Component -->
+    <include layout="@layout/comp_menu" />
+
+    <include layout="@layout/comp_horizontal_line" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Menu Component -->
-        <include layout="@layout/component_menu" />
     </ScrollView>
 </LinearLayout>
