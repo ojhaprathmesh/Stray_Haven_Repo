@@ -15,7 +15,5 @@
     <ScrollView
         android:id="@+id/scrollable_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </ScrollView>
+        android:layout_height="match_parent" />
 </LinearLayout>
