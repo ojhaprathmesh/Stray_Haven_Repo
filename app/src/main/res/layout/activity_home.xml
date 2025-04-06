@@ -15,5 +15,50 @@
     <ScrollView
         android:id="@+id/scrollable_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <HorizontalScrollView
+                android:id="@+id/story_tray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:paddingStart="20dp"
+                android:scrollbars="none"
+                tools:ignore="RtlSymmetry">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/comp_story" />
+
+                    <include layout="@layout/comp_story" />
+
+                    <include layout="@layout/comp_story" />
+
+                    <include layout="@layout/comp_story" />
+
+                    <include layout="@layout/comp_story" />
+
+                    <include layout="@layout/comp_story" />
+
+                    <include layout="@layout/comp_story" />
+
+                    <include layout="@layout/comp_story" />
+
+                    <include layout="@layout/comp_story" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <include layout="@layout/comp_horizontal_line" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
