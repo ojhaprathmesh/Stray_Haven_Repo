@@ -17,7 +17,6 @@ import androidx.core.view.WindowInsetsCompat;
 import app.main.R;
 
 public class HomeActivity extends AppCompatActivity {
-
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +25,17 @@ public class HomeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.home), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        LinearLayout storyContainer = findViewById(R.id.story_tray); // <-- Make sure this ID is correct
+        LinearLayout storyContainer = findViewById(R.id.story_tray);
         LayoutInflater inflater = LayoutInflater.from(this);
+
+        storyContainer.removeAllViews(); // <-- Remove existing views from the container
+
         int ngoCount = 16; // <-- Replace with actual NGO count from NGO API
 
         for (int i = 0; i < ngoCount; i++) {
