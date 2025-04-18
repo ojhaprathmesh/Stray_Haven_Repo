@@ -4,7 +4,6 @@
     android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
     android:background="@drawable/bg_menu"
     android:gravity="center_vertical"
     android:orientation="horizontal"
