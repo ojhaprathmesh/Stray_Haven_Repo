@@ -4,7 +4,7 @@
     android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_menu"
+    android:background="@drawable/bg_rect_green"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="12dp">
@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
-        android:contentDescription="@string/logo_desc"
+        android:contentDescription="@string/desc_logo"
         android:src="@drawable/app_logo"
         tools:ignore="ImageContrastCheck" />
 
@@ -38,7 +38,7 @@
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/notification_desc"
+        android:contentDescription="@string/desc_noti"
         android:padding="10dp"
         android:scaleType="centerInside"
         android:src="@drawable/notification_icon" />
@@ -48,7 +48,7 @@
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/profile_desc"
+        android:contentDescription="@string/desc_profile"
         android:padding="10dp"
         android:scaleType="centerInside"
         android:src="@drawable/profile_icon" />

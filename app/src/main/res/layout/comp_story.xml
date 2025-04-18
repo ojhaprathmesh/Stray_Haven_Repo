@@ -12,14 +12,14 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_story"
+        android:background="@drawable/bg_circle_green"
         android:gravity="center">
 
         <ImageButton
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
             android:background="@android:color/transparent"
-            android:contentDescription="@string/logo_desc"
+            android:contentDescription="@string/desc_logo"
             android:padding="5dp"
             android:src="@drawable/profile_icon"
             tools:ignore="ImageContrastCheck" />

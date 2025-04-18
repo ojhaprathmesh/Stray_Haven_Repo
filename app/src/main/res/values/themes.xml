@@ -6,7 +6,7 @@
     </style>
 
     <style name="Theme.StrayHaven" parent="Base.Theme.StrayHaven">
-        <item name="android:fontFamily">@font/jet_brains_mono__regular</item>
+        <item name="android:fontFamily">@font/jet_brains_mono__medium</item>
     </style>
 
     <style name="Theme.StrayHaven.NoActionBar">
