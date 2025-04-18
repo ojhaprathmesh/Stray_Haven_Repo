@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,10 +21,13 @@ public class HomeActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // App related code
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
+
+        Toast.makeText(this, "Welcome to Stray Haven", Toast.LENGTH_SHORT).show(); // <-- Welcome message
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.home), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -31,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Dynamically added story components
         LinearLayout storyContainer = findViewById(R.id.story_tray);
         LayoutInflater inflater = LayoutInflater.from(this);
 
