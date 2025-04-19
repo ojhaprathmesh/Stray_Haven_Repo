@@ -11,4 +11,5 @@
     <string name="img_desc_contact">This redirects you to nearest ngo contact</string>
     <string name="heading_contact">Contact the nearest NGO</string>
     <string name="desc_contact">Spot an injured animal? Report to the nearest NGO and be their hero!</string>
+    <string name="desc_ad_carousel">Used for ads</string>
 </resources>
