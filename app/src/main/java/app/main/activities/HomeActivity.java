@@ -44,16 +44,14 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        // Setting the theme to always use Light Mode (night mode is disabled)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this); // Enables edge-to-edge support (content extends under system bars)
         setContentView(R.layout.activity_home); // Set the content view to the corresponding XML layout
 
-        initSystemInsets(); // Initializes system bar insets for edge-to-edge support
-        welcomeUser(); // Show a welcome message as a Toast
-        populateStoryTray(); // Populate the "Story Tray" with a list of NGOs (simulated data)
-        setupAdvCarousel(); // Set up the advertisement carousel (view pager)
+        enforceLightMode();
+        initSystemInsets();
+        welcomeUser();
+        populateStoryTray();
+        setupAdvCarousel();
     }
 
     @Override
@@ -69,8 +67,15 @@ public class HomeActivity extends AppCompatActivity {
         handler.postDelayed(runnable, 3000); // Repost the runnable after a delay of 3000ms (3 seconds)
     }
 
-    // This method sets the padding of the main view to account for system bars (like status bar, navigation bar)
+    private void enforceLightMode() {
+        // Setting the theme to always use Light Mode (night mode is disabled)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    }
+
     private void initSystemInsets() {
+        // This method sets the padding of the main view to account for system bars (like status bar, navigation bar)
+        EdgeToEdge.enable(this); // Enables edge-to-edge support (content extends under system bars)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.home), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars()); // Get system bars insets
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom); // Set padding
@@ -101,6 +106,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupAdvCarousel() {
+        // Set up the advertisement carousel (view pager)
         viewPager = findViewById(R.id.viewPager);
         TabLayout tabLayout = findViewById(R.id.tabIndicator);
 
