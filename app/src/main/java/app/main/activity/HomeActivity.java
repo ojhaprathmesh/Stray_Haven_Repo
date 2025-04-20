@@ -1,22 +1,12 @@
-package app.main.activities;
+package app.main.activity;
 
-import android.annotation.SuppressLint;
+import static app.main.util.UI.*;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -26,9 +16,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import app.main.R;
-import app.main.adapters.ViewPagerAdapter;
+import app.main.adapter.ViewPagerAdapter;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     private ViewPager2 viewPager; // For the advertisement carousel
     private final Handler handler = new Handler(Looper.getMainLooper()); // Handler for scheduling auto-scroll
@@ -48,9 +38,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home); // Set the content view to the corresponding XML layout
 
         enforceLightMode();
-        initSystemInsets();
+        applySystemInsets(this, findViewById(R.id.home));
         welcomeUser();
-        populateStoryTray();
+        populateStoryTray(this, findViewById(R.id.story_tray), 10);
         setupAdvCarousel();
     }
 
@@ -65,44 +55,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onResume();
         handler.removeCallbacks(runnable); // Clear the existing runnable before re-posting
         handler.postDelayed(runnable, 3000); // Repost the runnable after a delay of 3000ms (3 seconds)
-    }
-
-    private void enforceLightMode() {
-        // Setting the theme to always use Light Mode (night mode is disabled)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-    }
-
-    private void initSystemInsets() {
-        // This method sets the padding of the main view to account for system bars (like status bar, navigation bar)
-        EdgeToEdge.enable(this); // Enables edge-to-edge support (content extends under system bars)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.home), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars()); // Get system bars insets
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom); // Set padding
-            return insets; // Return insets for further processing if needed
-        });
-    }
-
-    private void welcomeUser() {
-        Toast.makeText(this, "Welcome to Stray Haven", Toast.LENGTH_SHORT).show();
-    }
-
-    @SuppressLint("SetTextI18n")
-    private void populateStoryTray() {
-        LinearLayout storyContainer = findViewById(R.id.story_tray);
-        LayoutInflater inflater = LayoutInflater.from(this);
-        storyContainer.removeAllViews(); // Clear any previous views in the story container
-
-        int ngoCount = 16; // Placeholder count of NGOs, replace with actual data from an API
-        for (int i = 0; i < ngoCount; i++) {
-            View storyView = inflater.inflate(R.layout.comp_story, storyContainer, false);
-            storyView.setId(View.generateViewId()); // Generates a unique ID for the view
-
-            TextView nameTextView = storyView.findViewById(R.id.ngo_name);
-            nameTextView.setText("NGO #" + (i + 1)); // Set the NGO name (just a placeholder for now)
-
-            storyContainer.addView(storyView); // Add the new story view to the container
-        }
     }
 
     private void setupAdvCarousel() {
