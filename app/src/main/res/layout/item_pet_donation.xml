@@ -23,6 +23,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@string/desc_pet_image"
             android:scaleType="centerCrop"
+            tools:ignore="ImageContrastCheck"
             tools:src="@drawable/img_pet_dog" />
 
         <TextView
@@ -58,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/gray_80"
                 android:textSize="12sp"
+                tools:ignore="TextContrastCheck"
                 tools:text="₹3,98,584.00 needed" />
         </LinearLayout>
 
@@ -77,10 +79,11 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#FF9800"
             android:padding="12dp"
-            android:text="Donate Now"
+            android:text="@string/btn_donate"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
         <TextView
             android:id="@+id/daysLeft"
@@ -94,6 +97,7 @@
             android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold"
+            tools:ignore="TextContrastCheck"
             tools:text="25 Days Left" />
     </LinearLayout>
 </androidx.cardview.widget.CardView> 

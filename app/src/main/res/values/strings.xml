@@ -2,7 +2,7 @@
     <string name="app_name">Stray Haven</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="desc_logo">Logo</string>
-    <string name="desc_noti">Notifications</string>
+    <string name="desc_notification">Notifications</string>
     <string name="desc_profile">Profile</string>
     <string name="ngo_name">NGO Name</string>
     <string name="img_desc_invitation">This redirects you to invitation code overlay</string>
@@ -25,10 +25,19 @@
     <string name="heading_adv3">Volunteer Opportunities</string>
     <string name="content_adv3">Make a difference in animal lives by volunteering with us</string>
     <string name="btn_adv3">Join Now</string>
-    <!-- Pet Donations -->
     <string name="desc_pet_image">Pet image</string>
     <string name="donate_now">Donate Now</string>
     <string name="view_all">View All</string>
     <string name="urgent_fundraisers">URGENT FUNDRAISERS</string>
     <string name="time_sensitive_cases">Time-sensitive cases need you</string>
+    <string name="no_notifications">No notifications yet</string>
+    <string name="desc_user_image">User profile image</string>
+    <string name="desc_notification_icon">Notification type icon</string>
+    <string name="btn_view_all">View All</string>
+    <string name="btn_donate">Donate Now</string>
+    <string name="desc_notifications_list">List of notifications</string>
+    <string name="desc_empty_notifications">No notifications available</string>
+    <string name="desc_back_button">Go back</string>
+    <string name="heading_notification">Notifications</string>
+    <string name="desc_like_button">Like notification</string>
 </resources>
