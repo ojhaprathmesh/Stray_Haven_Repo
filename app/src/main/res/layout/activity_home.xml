@@ -38,15 +38,7 @@
             android:orientation="vertical">
 
             <!-- Divider -->
-            <include
-                android:id="@+id/top_divider"
-                layout="@layout/comp_horizontal_line"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginHorizontal="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/menu_component" />
+            <View style="@style/HorizontalLine" />
 
             <HorizontalScrollView
                 android:id="@+id/story_scroll"
@@ -69,11 +61,7 @@
             </HorizontalScrollView>
 
             <!-- Divider -->
-            <include
-                layout="@layout/comp_horizontal_line"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginHorizontal="20dp" />
+            <View style="@style/HorizontalLine" />
 
             <!-- Redirect Component -->
             <include
@@ -83,11 +71,7 @@
                 android:layout_margin="20dp" />
 
             <!-- Divider -->
-            <include
-                layout="@layout/comp_horizontal_line"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginHorizontal="20dp" />
+            <View style="@style/HorizontalLine" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -115,6 +99,8 @@
                     app:tabIndicatorFullWidth="false"
                     app:tabMode="fixed" />
             </LinearLayout>
+
+            <include layout="@layout/comp_slogan" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

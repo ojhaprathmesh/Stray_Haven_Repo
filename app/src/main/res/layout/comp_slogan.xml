@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingVertical="8dp">
+
+    <!-- Top Divider and Title Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+
+        <!-- Left Line -->
+        <View
+            style="@style/HorizontalLine"
+            android:layout_marginStart="0dp"
+            android:layout_weight="1" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jet_brains_mono__bold"
+            android:paddingHorizontal="8dp"
+            android:text="@string/slogan_fundraiser"
+            android:textAllCaps="true"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Right Line -->
+        <View
+            style="@style/HorizontalLine"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/sub_slogan_fundraisers"
+        android:textColor="@color/gray_80"
+        android:textSize="14sp"
+        tools:ignore="TextContrastCheck" />
+</LinearLayout>
