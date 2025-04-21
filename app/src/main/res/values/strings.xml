@@ -12,7 +12,7 @@
     <string name="heading_contact">Contact the nearest NGO</string>
     <string name="desc_contact">Spot an injured animal? Report to the nearest NGO and be their hero!</string>
     <string name="desc_ad_carousel">Used for ads</string>
-    <string name="slogan_fundraiser">Urgent Fundraiser</string>
+    <string name="slogan_fundraiser">URGENT FUNDRAISERS</string>
     <string name="sub_slogan_fundraisers">Time-sensitive cases need you</string>
     <string name="heading_adv1">Become A GEM Donor!</string>
     <string name="content_adv1">Unlock exclusive rewards with your GEM subscription. Subscribe Now!</string>
@@ -25,4 +25,10 @@
     <string name="heading_adv3">Volunteer Opportunities</string>
     <string name="content_adv3">Make a difference in animal lives by volunteering with us</string>
     <string name="btn_adv3">Join Now</string>
+    <!-- Pet Donations -->
+    <string name="desc_pet_image">Pet image</string>
+    <string name="donate_now">Donate Now</string>
+    <string name="view_all">View All</string>
+    <string name="urgent_fundraisers">URGENT FUNDRAISERS</string>
+    <string name="time_sensitive_cases">Time-sensitive cases need you</string>
 </resources>
