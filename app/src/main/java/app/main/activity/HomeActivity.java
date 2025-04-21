@@ -27,9 +27,9 @@ public class HomeActivity extends BaseActivity {
 
     // List of image resources for the advertisement carousel
     private final List<Integer> images = Arrays.asList(
-            R.drawable.ad1,
-            R.drawable.ad2,
-            R.drawable.ad3
+            R.drawable.img_ad1,
+            R.drawable.img_ad2,
+            R.drawable.img_ad3
     );
 
     @Override
