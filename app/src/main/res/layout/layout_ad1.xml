@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
-    app:cardElevation="4dp"
-    android:layout_margin="8dp">
+    app:cardElevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -60,9 +60,9 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/img_ad1"
-            android:scaleType="centerInside"
             android:contentDescription="@string/desc_adv1"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_ad1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adSubtitle" />

@@ -62,28 +62,28 @@ public class PetDonationsFragment extends Fragment implements PetDonationAdapter
         // Sample data - in a real app, this would come from a data source
         petDonations = Arrays.asList(
             new PetDonation(
-                R.drawable.img_pet_dog,
+                R.drawable.img_pet1,
                 "\"Support Leena during her recovery after a severe accident!\"",
                 101416.00,
                 398584.00,
                 25
             ),
             new PetDonation(
-                R.drawable.img_pet_cat,
+                R.drawable.img_pet2,
                 "\"Help Oliver get the surgery he desperately needs!\"",
                 78500.00,
                 150000.00,
                 12
             ),
             new PetDonation(
-                R.drawable.img_pet_rabbit,
+                R.drawable.img_pet3,
                 "\"Save Fluffy's life with urgent medical care!\"",
                 45300.00,
                 110000.00,
                 8
             ),
             new PetDonation(
-                R.drawable.img_pet_bird,
+                R.drawable.img_pet4,
                 "\"Tweety needs special treatment for a rare condition!\"",
                 32100.00,
                 80000.00,

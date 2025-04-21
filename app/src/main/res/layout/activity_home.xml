@@ -85,7 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
-                    tools:itemCount="3"/>
+                    tools:itemCount="3" />
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabIndicator"
@@ -106,7 +106,10 @@
                 android:name="app.main.fragment.PetDonationsFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp" />
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="8dp"
+                android:visibility="visible"
+                tools:layout="@layout/comp_pet_donations" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
