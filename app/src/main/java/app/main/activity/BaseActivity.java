@@ -29,4 +29,3 @@ public abstract class BaseActivity extends AppCompatActivity {
         Toast.makeText(this, "Welcome to Stray Haven", Toast.LENGTH_SHORT).show();
     }
 }
-

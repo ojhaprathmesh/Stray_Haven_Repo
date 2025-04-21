@@ -13,7 +13,7 @@
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:contentDescription="@string/desc_logo"
-        android:src="@drawable/app_logo"
+        android:src="@drawable/img_app_logo"
         tools:ignore="ImageContrastCheck" />
 
     <Space
@@ -41,7 +41,7 @@
         android:contentDescription="@string/desc_noti"
         android:padding="10dp"
         android:scaleType="centerInside"
-        android:src="@drawable/notification_icon" />
+        android:src="@drawable/img_notification_icon" />
 
     <ImageButton
         android:id="@+id/profile"
@@ -51,5 +51,5 @@
         android:contentDescription="@string/desc_profile"
         android:padding="10dp"
         android:scaleType="centerInside"
-        android:src="@drawable/profile_icon" />
+        android:src="@drawable/img_profile_icon" />
 </LinearLayout>

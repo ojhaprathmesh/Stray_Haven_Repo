@@ -14,4 +14,15 @@
     <string name="desc_ad_carousel">Used for ads</string>
     <string name="slogan_fundraiser">Urgent Fundraiser</string>
     <string name="sub_slogan_fundraisers">Time-sensitive cases need you</string>
+    <string name="heading_adv1">Become A GEM Donor!</string>
+    <string name="content_adv1">Unlock exclusive rewards with your GEM subscription. Subscribe Now!</string>
+    <string name="btn_adv1"><![CDATA[Subscribe & Win]]></string>
+    <string name="desc_adv1">Donation image</string>
+    <string name="heading_adv2">Download Form 108E</string>
+    <string name="content_adv2">Claim tax benefits on your generous donations by downloading the form</string>
+    <string name="btn_adv2">Download</string>
+    <string name="desc_adv2">Form document</string>
+    <string name="heading_adv3">Volunteer Opportunities</string>
+    <string name="content_adv3">Make a difference in animal lives by volunteering with us</string>
+    <string name="btn_adv3">Join Now</string>
 </resources>

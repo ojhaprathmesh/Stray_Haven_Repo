@@ -39,7 +39,7 @@
             android:contentDescription="@string/img_desc_invitation"
             android:padding="4dp"
             android:scaleType="centerInside"
-            android:src="@drawable/donation"
+            android:src="@drawable/img_donation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,7 +118,7 @@
             android:contentDescription="@string/img_desc_contact"
             android:padding="4dp"
             android:scaleType="centerInside"
-            android:src="@drawable/medical_report"
+            android:src="@drawable/img_medical_report"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ImageContrastCheck" />
