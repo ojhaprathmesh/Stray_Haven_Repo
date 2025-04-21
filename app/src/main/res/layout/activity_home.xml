@@ -76,7 +76,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="12dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -85,8 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_viewpager" />
+                    tools:itemCount="3"/>
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabIndicator"

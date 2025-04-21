@@ -25,11 +25,11 @@ public class HomeActivity extends BaseActivity {
     private Runnable runnable; // For handling auto-scrolling of the carousel
     private int currentPosition; // Current position of the ad carousel
 
-    // List of image resources for the advertisement carousel
-    private final List<Integer> images = Arrays.asList(
-            R.drawable.img_ad1,
-            R.drawable.img_ad2,
-            R.drawable.img_ad3
+    // List of layout resources for the advertisement carousel
+    private final List<Integer> adLayouts = Arrays.asList(
+            R.layout.layout_ad1,
+            R.layout.layout_ad2,
+            R.layout.layout_ad3
     );
 
     @Override
@@ -63,7 +63,7 @@ public class HomeActivity extends BaseActivity {
         TabLayout tabLayout = findViewById(R.id.tabIndicator);
 
         // Create an adapter for ViewPager2 and set it to the viewPager
-        ViewPagerAdapter adapter = new ViewPagerAdapter(images);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(adLayouts);
         viewPager.setAdapter(adapter);
 
         // Link the TabLayout with ViewPager2 using a TabLayoutMediator
@@ -86,7 +86,7 @@ public class HomeActivity extends BaseActivity {
         runnable = new Runnable() {
             @Override
             public void run() {
-                currentPosition = (currentPosition + 1) % images.size();
+                currentPosition = (currentPosition + 1) % adLayouts.size();
                 viewPager.setCurrentItem(currentPosition, true);
                 handler.postDelayed(this, 3000);
             }
