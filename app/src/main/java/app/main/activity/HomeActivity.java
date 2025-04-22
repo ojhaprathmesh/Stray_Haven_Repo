@@ -5,6 +5,8 @@ import static app.main.util.UI.*;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.viewpager2.widget.ViewPager2;
@@ -17,6 +19,7 @@ import java.util.List;
 
 import app.main.R;
 import app.main.adapter.ViewPagerAdapter;
+import app.main.component.FloatingMenuManager;
 
 public class HomeActivity extends BaseActivity {
 
@@ -42,6 +45,7 @@ public class HomeActivity extends BaseActivity {
         welcomeUser();
         populateStoryTray(this, findViewById(R.id.story_tray), 10);
         setupAdvCarousel();
+        setupFloatingMenu();
     }
 
     @Override
@@ -92,5 +96,37 @@ public class HomeActivity extends BaseActivity {
             }
         };
         handler.postDelayed(runnable, 3000);
+    }
+
+    private void setupFloatingMenu() {
+        View mainButton = findViewById(R.id.main_nav_button);
+        View button1 = findViewById(R.id.nav_button1);
+        View button2 = findViewById(R.id.nav_button2);
+        View button3 = findViewById(R.id.nav_button3);
+        View button4 = findViewById(R.id.nav_button4);
+        
+        FloatingMenuManager menuManager = new FloatingMenuManager(
+                mainButton, button1, button2, button3, button4);
+        
+        // Set click listeners for each button
+        menuManager.setButton1ClickListener(v -> {
+            Toast.makeText(this, "Button 1 clicked", Toast.LENGTH_SHORT).show();
+            // Add your action here
+        });
+        
+        menuManager.setButton2ClickListener(v -> {
+            Toast.makeText(this, "Button 2 clicked", Toast.LENGTH_SHORT).show();
+            // Add your action here
+        });
+        
+        menuManager.setButton3ClickListener(v -> {
+            Toast.makeText(this, "Button 3 clicked", Toast.LENGTH_SHORT).show();
+            // Add your action here
+        });
+        
+        menuManager.setButton4ClickListener(v -> {
+            Toast.makeText(this, "Button 4 clicked", Toast.LENGTH_SHORT).show();
+            // Add your action here
+        });
     }
 }

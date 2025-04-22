@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:clipToPadding="false"
+    android:clipChildren="false">
+
+    <!-- Main Navigation Button -->
+    <FrameLayout
+        android:id="@+id/main_nav_button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_circle_blue_50"
+        android:clickable="true"
+        android:contentDescription="@string/desc_navigation_button"
+        android:elevation="0dp"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/desc_navigation_button"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/img_nav" />
+    </FrameLayout>
+
+    <!-- Button 1 - Straight Up -->
+    <FrameLayout
+        android:id="@+id/nav_button1"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:alpha="0"
+        android:background="@drawable/bg_circle_blue_50"
+        android:clickable="true"
+        android:contentDescription="@string/desc_nav_button1"
+        android:elevation="0dp"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/main_nav_button"
+        app:layout_constraintEnd_toEndOf="@id/main_nav_button">
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/desc_nav_button1"
+            android:padding="8dp"
+            android:src="@drawable/img_rewards" />
+    </FrameLayout>
+
+    <!-- Button 2 - 30 degree angle -->
+    <FrameLayout
+        android:id="@+id/nav_button2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:alpha="0"
+        android:background="@drawable/bg_circle_blue_50"
+        android:clickable="true"
+        android:contentDescription="@string/desc_nav_button2"
+        android:elevation="0dp"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/main_nav_button"
+        app:layout_constraintEnd_toEndOf="@id/main_nav_button">
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/desc_nav_button2"
+            android:padding="8dp"
+            android:src="@drawable/img_sub" />
+    </FrameLayout>
+
+    <!-- Button 3 - 60 degree angle -->
+    <FrameLayout
+        android:id="@+id/nav_button3"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:alpha="0"
+        android:background="@drawable/bg_circle_blue_50"
+        android:clickable="true"
+        android:contentDescription="@string/desc_nav_button3"
+        android:elevation="0dp"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/main_nav_button"
+        app:layout_constraintEnd_toEndOf="@id/main_nav_button">
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/desc_nav_button3"
+            android:padding="8dp"
+            android:src="@drawable/img_donate" />
+    </FrameLayout>
+
+    <!-- Button 4 - Straight Left -->
+    <FrameLayout
+        android:id="@+id/nav_button4"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:alpha="0"
+        android:background="@drawable/bg_circle_blue_50"
+        android:clickable="true"
+        android:contentDescription="@string/desc_nav_button4"
+        android:elevation="0dp"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/main_nav_button"
+        app:layout_constraintEnd_toEndOf="@id/main_nav_button">
+        
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/desc_nav_button4"
+            android:padding="8dp"
+            android:src="@drawable/img_home" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout> 
