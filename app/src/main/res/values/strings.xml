@@ -41,4 +41,5 @@
     <string name="heading_notification">Notifications</string>
     <string name="desc_like_button">Like notification</string>
     <string name="desc_navigation_button">Navigation button</string>
+    <string name="btn_nav">Navigation Btn</string>
 </resources>

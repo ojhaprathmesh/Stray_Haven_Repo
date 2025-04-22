@@ -118,12 +118,11 @@
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Floating Navigation Circle -->
-    <include
-        android:id="@+id/floating_nav_circle"
-        layout="@layout/comp_floating_circle"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+    <!-- Floating Navigation Button -->
+    <app.main.component.NavigationButton
+        android:id="@+id/nav_button"
+        android:layout_width="@dimen/nav_size"
+        android:layout_height="@dimen/nav_size"
         android:layout_gravity="bottom|end"
         android:layout_margin="20dp" />
 
