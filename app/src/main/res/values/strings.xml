@@ -40,4 +40,5 @@
     <string name="desc_back_button">Go back</string>
     <string name="heading_notification">Notifications</string>
     <string name="desc_like_button">Like notification</string>
+    <string name="desc_navigation_button">Navigation button</string>
 </resources>
