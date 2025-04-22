@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home"
@@ -7,109 +7,124 @@
     android:layout_height="match_parent"
     tools:context=".activity.HomeActivity">
 
-    <!-- Menu Component -->
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/menu_component"
-        android:name="app.main.fragment.MenuFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout="@layout/comp_menu" />
+        android:layout_height="match_parent">
 
-    <!-- Scrollable Content -->
-    <ScrollView
-        android:id="@+id/home_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu_component">
-
-        <LinearLayout
-            android:id="@+id/home_content"
+        <!-- Menu Component -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/menu_component"
+            android:name="app.main.fragment.MenuFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/comp_menu" />
 
-            <!-- Divider -->
-            <View style="@style/HorizontalLine" />
-
-            <HorizontalScrollView
-                android:id="@+id/story_scroll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fillViewport="true"
-                android:paddingHorizontal="20dp"
-                android:scrollbars="none">
-
-                <!-- Container for dynamically added story components-->
-                <LinearLayout
-                    android:id="@+id/story_tray"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <include layout="@layout/comp_story" />
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <!-- Divider -->
-            <View style="@style/HorizontalLine" />
-
-            <!-- Redirect Component -->
-            <include
-                layout="@layout/comp_redirect"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp" />
-
-            <!-- Divider -->
-            <View style="@style/HorizontalLine" />
+        <!-- Scrollable Content -->
+        <ScrollView
+            android:id="@+id/home_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/menu_component">
 
             <LinearLayout
+                android:id="@+id/home_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:gravity="center"
                 android:orientation="vertical">
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/viewPager"
+                <!-- Divider -->
+                <View style="@style/HorizontalLine" />
+
+                <HorizontalScrollView
+                    android:id="@+id/story_scroll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="0dp"
-                    tools:itemCount="3" />
+                    android:fillViewport="true"
+                    android:paddingHorizontal="20dp"
+                    android:scrollbars="none">
 
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabIndicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_margin="0dp"
-                    app:layout_constraintTop_toBottomOf="@id/viewPager"
-                    app:tabGravity="center"
-                    app:tabIndicatorColor="@android:color/holo_blue_dark"
-                    app:tabIndicatorFullWidth="false"
-                    app:tabMode="fixed" />
+                    <!-- Container for dynamically added story components-->
+                    <LinearLayout
+                        android:id="@+id/story_tray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <include layout="@layout/comp_story" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Divider -->
+                <View style="@style/HorizontalLine" />
+
+                <!-- Redirect Component -->
+                <include
+                    layout="@layout/comp_redirect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp" />
+
+                <!-- Divider -->
+                <View style="@style/HorizontalLine" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dp"
+                        tools:itemCount="3" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tabIndicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_margin="0dp"
+                        app:layout_constraintTop_toBottomOf="@id/viewPager"
+                        app:tabGravity="center"
+                        app:tabIndicatorColor="@android:color/holo_blue_dark"
+                        app:tabIndicatorFullWidth="false"
+                        app:tabMode="fixed" />
+                </LinearLayout>
+
+                <include layout="@layout/comp_slogan" />
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/petDonations_container"
+                    android:name="app.main.fragment.PetDonationsFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="8dp"
+                    android:visibility="visible"
+                    tools:layout="@layout/comp_pet_donations" />
             </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <include layout="@layout/comp_slogan" />
+    <!-- Floating Navigation Circle -->
+    <include
+        android:id="@+id/floating_nav_circle"
+        layout="@layout/comp_floating_circle"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp" />
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/petDonations_container"
-                android:name="app.main.fragment.PetDonationsFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="8dp"
-                android:visibility="visible"
-                tools:layout="@layout/comp_pet_donations" />
-        </LinearLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
