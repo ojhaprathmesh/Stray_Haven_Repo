@@ -38,7 +38,7 @@
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/desc_noti"
+        android:contentDescription="@string/desc_notification"
         android:padding="10dp"
         android:scaleType="centerInside"
         android:src="@drawable/img_notification_icon" />

@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import app.main.R;
 import app.main.adapter.PetDonationAdapter;
@@ -28,7 +28,6 @@ public class PetDonationsFragment extends Fragment implements PetDonationAdapter
 
     private RecyclerView recyclerView;
     private LinearLayout dotsIndicator;
-    private PetDonationAdapter adapter;
     private List<PetDonation> petDonations;
     private int currentPosition = 0;
 
@@ -77,7 +76,7 @@ public class PetDonationsFragment extends Fragment implements PetDonationAdapter
             ),
             new PetDonation(
                 R.drawable.img_pet3,
-                "\"Save Fluffy's life with urgent medical care!\"",
+                "\"Save Fluff's life with urgent medical care!\"",
                 45300.00,
                 110000.00,
                 8
@@ -94,7 +93,7 @@ public class PetDonationsFragment extends Fragment implements PetDonationAdapter
 
     private void setupRecyclerView() {
         // Initialize adapter
-        adapter = new PetDonationAdapter(petDonations);
+        PetDonationAdapter adapter = new PetDonationAdapter(petDonations);
         adapter.setOnDonateClickListener(this);
         
         // Set up RecyclerView
@@ -112,7 +111,7 @@ public class PetDonationsFragment extends Fragment implements PetDonationAdapter
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    int position = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+                    int position = ((LinearLayoutManager) Objects.requireNonNull(recyclerView.getLayoutManager())).findFirstVisibleItemPosition();
                     if (position != currentPosition) {
                         updateDotIndicator(position);
                         currentPosition = position;
