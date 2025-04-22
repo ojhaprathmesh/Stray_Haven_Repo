@@ -118,12 +118,25 @@
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Floating Navigation Button -->
-    <app.main.component.NavigationButton
-        android:id="@+id/nav_button"
-        android:layout_width="@dimen/nav_size"
-        android:layout_height="@dimen/nav_size"
+    <!-- Floating Navigation Menu -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="20dp" />
+        android:layout_margin="30dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:padding="20dp">
+        
+        <include
+            android:id="@+id/floating_nav_menu"
+            layout="@layout/comp_floating_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|end" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

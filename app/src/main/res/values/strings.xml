@@ -42,4 +42,8 @@
     <string name="desc_like_button">Like notification</string>
     <string name="desc_navigation_button">Navigation button</string>
     <string name="btn_nav">Navigation Btn</string>
+    <string name="desc_nav_button1">Navigation option 1</string>
+    <string name="desc_nav_button2">Navigation option 2</string>
+    <string name="desc_nav_button3">Navigation option 3</string>
+    <string name="desc_nav_button4">Navigation option 4</string>
 </resources>

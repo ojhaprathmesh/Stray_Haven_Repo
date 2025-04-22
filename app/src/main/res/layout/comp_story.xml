@@ -20,7 +20,7 @@
             android:layout_height="@dimen/icon_size"
             android:background="@android:color/transparent"
             android:contentDescription="@string/desc_logo"
-            android:padding="5dp"
+            android:scaleType="centerInside"
             android:src="@drawable/img_profile_icon"
             tools:ignore="ImageContrastCheck" />
     </LinearLayout>
