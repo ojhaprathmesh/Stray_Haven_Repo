@@ -27,5 +27,10 @@
             android:name=".activity.NotificationsActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            
+        <activity
+            android:name=".activity.NGODetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 </manifest>
