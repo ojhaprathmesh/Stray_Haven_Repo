@@ -2,6 +2,7 @@ package app.main.activity;
 
 import static app.main.util.UI.*;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -46,6 +48,7 @@ public class HomeActivity extends BaseActivity {
         populateStoryTray(this, findViewById(R.id.story_tray), 10);
         setupAdvCarousel();
         setupFloatingMenu();
+        setupRedirectButtons();
     }
 
     @Override
@@ -128,5 +131,26 @@ public class HomeActivity extends BaseActivity {
             Toast.makeText(this, "Button 4 clicked", Toast.LENGTH_SHORT).show();
             // Add your action here
         });
+    }
+    
+    private void setupRedirectButtons() {
+        // Set up click listener for the "Contact the nearest NGO" section
+        ConstraintLayout contactRedirect = findViewById(R.id.redirect_contact);
+        if (contactRedirect != null) {
+            contactRedirect.setOnClickListener(v -> {
+                // Launch the NGO Details Activity
+                Intent intent = new Intent(HomeActivity.this, NGODetailsActivity.class);
+                startActivity(intent);
+            });
+        }
+        
+        // Set up click listener for the invitation code section (if needed in the future)
+        ConstraintLayout invitationRedirect = findViewById(R.id.redirect_invitation);
+        if (invitationRedirect != null) {
+            invitationRedirect.setOnClickListener(v -> {
+                Toast.makeText(this, "Invitation code feature coming soon!", Toast.LENGTH_SHORT).show();
+                // Add the invitation code functionality here when ready
+            });
+        }
     }
 }
