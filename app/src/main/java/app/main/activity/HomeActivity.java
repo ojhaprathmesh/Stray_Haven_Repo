@@ -138,9 +138,20 @@ public class HomeActivity extends BaseActivity {
         ConstraintLayout contactRedirect = findViewById(R.id.redirect_contact);
         if (contactRedirect != null) {
             contactRedirect.setOnClickListener(v -> {
-                // Launch the NGO Details Activity
+                // Launch the NGO Details Activity with shared element transition
                 Intent intent = new Intent(HomeActivity.this, NGODetailsActivity.class);
-                startActivity(intent);
+                
+                View floatingMenuContainer = findViewById(R.id.floating_menu_container);
+                
+                // Create the transition
+                androidx.core.app.ActivityOptionsCompat options = 
+                    androidx.core.app.ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        this, 
+                        floatingMenuContainer, 
+                        "floating_menu"
+                    );
+                
+                startActivity(intent, options.toBundle());
             });
         }
         

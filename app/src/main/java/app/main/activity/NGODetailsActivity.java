@@ -1,9 +1,11 @@
 package app.main.activity;
 
 import android.os.Bundle;
+import android.transition.ChangeBounds;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,17 +36,20 @@ public class NGODetailsActivity extends BaseActivity {
     private TextView seeAllText;
     private RecyclerView ngoRecyclerView;
     private NGOAdapter ngoAdapter;
-    private FloatingMenuManager floatingMenuManager;
-    
+
     // Customizable properties
-    private List<String> locationsList = new ArrayList<>(Arrays.asList(
+    private final List<String> locationsList = new ArrayList<>(Arrays.asList(
             "Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata"
     ));
-    private int maxNGOsToDisplay = 3; // Default, can be changed
     private boolean showingAll = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        // Enable shared element transitions
+        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+        getWindow().setSharedElementEnterTransition(new ChangeBounds().setDuration(300));
+        getWindow().setSharedElementExitTransition(new ChangeBounds().setDuration(300));
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ngo_details);
         
@@ -87,8 +92,8 @@ public class NGODetailsActivity extends BaseActivity {
         View button2 = findViewById(R.id.nav_button2);
         View button3 = findViewById(R.id.nav_button3);
         View button4 = findViewById(R.id.nav_button4);
-        
-        floatingMenuManager = new FloatingMenuManager(
+
+        FloatingMenuManager floatingMenuManager = new FloatingMenuManager(
                 mainButton, button1, button2, button3, button4);
         
         // Set click listeners for each button
@@ -132,6 +137,8 @@ public class NGODetailsActivity extends BaseActivity {
     }
     
     private List<NGO> getVisibleNGOs(List<NGO> allNGOs) {
+        // Default, can be changed
+        int maxNGOsToDisplay = 3;
         if (showingAll || allNGOs.size() <= maxNGOsToDisplay) {
             return allNGOs;
         } else {
@@ -217,24 +224,5 @@ public class NGODetailsActivity extends BaseActivity {
     }
     
     // Public methods that can be called to customize the view
-    
-    /**
-     * Set the list of available locations for the dropdown
-     * @param locations List of location names
-     */
-    public void setLocationsList(List<String> locations) {
-        this.locationsList.clear();
-        this.locationsList.addAll(locations);
-    }
-    
-    /**
-     * Set the maximum number of NGOs to display before clicking "See All"
-     * @param maxCount Maximum number of NGOs
-     */
-    public void setMaxNGOsToDisplay(int maxCount) {
-        this.maxNGOsToDisplay = maxCount;
-        if (ngoAdapter != null) {
-            ngoAdapter.updateData(getVisibleNGOs(generateSampleNGOs()));
-        }
-    }
-} 
+
+}
