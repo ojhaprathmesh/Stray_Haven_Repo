@@ -1,5 +1,6 @@
 package app.main.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class NGOAdapter extends RecyclerView.Adapter<NGOAdapter.NGOViewHolder> {
         return new NGOViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull NGOViewHolder holder, int position) {
         NGO ngo = ngoList.get(position);
@@ -65,7 +67,7 @@ public class NGOAdapter extends RecyclerView.Adapter<NGOAdapter.NGOViewHolder> {
     }
 
     // ViewHolder class
-    static class NGOViewHolder extends RecyclerView.ViewHolder {
+    public static class NGOViewHolder extends RecyclerView.ViewHolder {
         ImageView logoImageView;
         TextView nameTextView, locationTextView, petsTextView, contactTextView, taglineTextView, ratingTextView;
 

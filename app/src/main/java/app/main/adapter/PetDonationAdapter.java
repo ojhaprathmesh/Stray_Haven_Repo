@@ -74,7 +74,7 @@ public class PetDonationAdapter extends RecyclerView.Adapter<PetDonationAdapter.
         return petDonations.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         final ImageView petImage;
         final TextView petDescription;
         final TextView amountRaised;

@@ -3,16 +3,14 @@ package app.main.component;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.util.Log;
+// import android.util.Log;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Interpolator;
 
-import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import androidx.annotation.NonNull;
 
 public class FloatingMenuManager {
-    private static final String TAG = "FloatingManager";
+    // private static final String TAG = "FloatingManager";
     private final View mainButton;
     private final View button1; // Straight up
     private final View button2; // 30 degrees
@@ -70,21 +68,21 @@ public class FloatingMenuManager {
         AnimatorSet animatorSet = new AnimatorSet();
 
         // Button 1 - Straight up (90 degrees)
-        animatorSet.play(createButtonAnimator(button1, 0, -TRANSLATION_DISTANCE, 0, 0));
+        animatorSet.play(createButtonAnimator(button1, -TRANSLATION_DISTANCE, 0));
 
         // Button 2 - 30 degrees from vertical
         float translationX2 = (float) (-Math.sin(Math.toRadians(30)) * TRANSLATION_DISTANCE);
         float translationY2 = (float) (-Math.cos(Math.toRadians(30)) * TRANSLATION_DISTANCE);
-        animatorSet.play(createButtonAnimator(button2, 0, translationY2, 0, translationX2));
+        animatorSet.play(createButtonAnimator(button2, translationY2, translationX2));
 
         // Button 3 - 60 degrees from vertical
         float translationX3 = (float) (-Math.sin(Math.toRadians(60)) * TRANSLATION_DISTANCE);
         float translationY3 = (float) (-Math.cos(Math.toRadians(60)) * TRANSLATION_DISTANCE);
-        animatorSet.play(createButtonAnimator(button3, 0, translationY3, 0, translationX3));
-        Log.d(TAG, "X distance:" + String.valueOf(translationX3));
+        animatorSet.play(createButtonAnimator(button3, translationY3, translationX3));
+        // Log.d(TAG, "X distance:" + translationX3);
 
         // Button 4 - Straight left (180 degrees)
-        animatorSet.play(createButtonAnimator(button4, 0, 0, 0, -TRANSLATION_DISTANCE));
+        animatorSet.play(createButtonAnimator(button4, 0, -TRANSLATION_DISTANCE));
 
         animatorSet.start();
     }
@@ -93,26 +91,26 @@ public class FloatingMenuManager {
         AnimatorSet animatorSet = new AnimatorSet();
 
         // Button 1 - Straight up
-        animatorSet.play(createCloseButtonAnimator(button1, button1.getTranslationY(), 0, button1.getTranslationX(), 0));
+        animatorSet.play(createCloseButtonAnimator(button1, button1.getTranslationY(), button1.getTranslationX()));
 
         // Button 2 - 30 degrees
-        animatorSet.play(createCloseButtonAnimator(button2, button2.getTranslationY(), 0, button2.getTranslationX(), 0));
+        animatorSet.play(createCloseButtonAnimator(button2, button2.getTranslationY(), button2.getTranslationX()));
 
         // Button 3 - 60 degrees
-        animatorSet.play(createCloseButtonAnimator(button3, button3.getTranslationY(), 0, button3.getTranslationX(), 0));
+        animatorSet.play(createCloseButtonAnimator(button3, button3.getTranslationY(), button3.getTranslationX()));
 
         // Button 4 - Straight left
-        animatorSet.play(createCloseButtonAnimator(button4, button4.getTranslationY(), 0, button4.getTranslationX(), 0));
+        animatorSet.play(createCloseButtonAnimator(button4, button4.getTranslationY(), button4.getTranslationX()));
 
-        Log.d(TAG, "Button 4 close animation starting");
+        // Log.d(TAG, "Button 4 close animation starting");
 
         animatorSet.addListener(new Animator.AnimatorListener() {
             @Override
-            public void onAnimationStart(Animator animation) {
+            public void onAnimationStart(@NonNull Animator animation) {
             }
 
             @Override
-            public void onAnimationEnd(Animator animation) {
+            public void onAnimationEnd(@NonNull Animator animation) {
                 if (!isMenuOpen) {
                     button1.setVisibility(View.INVISIBLE);
                     button2.setVisibility(View.INVISIBLE);
@@ -122,11 +120,11 @@ public class FloatingMenuManager {
             }
 
             @Override
-            public void onAnimationCancel(Animator animation) {
+            public void onAnimationCancel(@NonNull Animator animation) {
             }
 
             @Override
-            public void onAnimationRepeat(Animator animation) {
+            public void onAnimationRepeat(@NonNull Animator animation) {
             }
         });
 
@@ -134,18 +132,17 @@ public class FloatingMenuManager {
     }
 
     private AnimatorSet createButtonAnimator(View button,
-                                             float startY, float endY,
-                                             float startX, float endX) {
+                                             float endY,
+                                             float endX) {
         ObjectAnimator translateY = ObjectAnimator.ofFloat(
-                button, "translationY", startY, endY);
+                button, "translationY", (float) 0, endY);
 
         ObjectAnimator translateX = ObjectAnimator.ofFloat(
-                button, "translationX", startX, endX);
+                button, "translationX", (float) 0, endX);
 
         // Always animate alpha from 0->1 for opening and 1->0 for closing
-        boolean isOpening = startX == 0 && startY == 0;
         ObjectAnimator alpha = ObjectAnimator.ofFloat(
-                button, "alpha", isOpening ? 0f : 1f, isOpening ? 1f : 0f);
+                button, "alpha", 0f, 1f);
 
         AnimatorSet set = new AnimatorSet();
         set.playTogether(translateY, translateX, alpha);
@@ -158,13 +155,13 @@ public class FloatingMenuManager {
     }
 
     private AnimatorSet createCloseButtonAnimator(View button,
-                                                  float startY, float endY,
-                                                  float startX, float endX) {
+                                                  float startY,
+                                                  float startX) {
         ObjectAnimator translateY = ObjectAnimator.ofFloat(
-                button, "translationY", startY, endY);
+                button, "translationY", startY, (float) 0);
 
         ObjectAnimator translateX = ObjectAnimator.ofFloat(
-                button, "translationX", startX, endX);
+                button, "translationX", startX, (float) 0);
 
         ObjectAnimator alpha = ObjectAnimator.ofFloat(
                 button, "alpha", 1f, 0f);
