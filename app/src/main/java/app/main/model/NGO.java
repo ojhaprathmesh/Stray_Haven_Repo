@@ -1,4 +1,4 @@
-package app.main.activity;
+package app.main.model;
 
 public class NGO {
     String name, location, pets, contact, tagline;
@@ -17,4 +17,4 @@ public class NGO {
     public String getPets() { return pets; }
     public String getContact() { return contact; }
     public String getTagline() { return tagline; }
-}
+} 
