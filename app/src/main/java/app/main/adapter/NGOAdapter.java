@@ -42,7 +42,7 @@ public class NGOAdapter extends RecyclerView.Adapter<NGOAdapter.NGOViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull NGOViewHolder holder, int position) {
         NGO ngo = ngoList.get(position);
-        
+
         // Set data to views
         holder.nameTextView.setText(ngo.getName());
         holder.locationTextView.setText(ngo.getLocation());
@@ -50,7 +50,7 @@ public class NGOAdapter extends RecyclerView.Adapter<NGOAdapter.NGOViewHolder> {
         holder.contactTextView.setText(ngo.getContact());
         holder.taglineTextView.setText("-" + ngo.getTagline());
         holder.ratingTextView.setText("4.5"); // In a real app, this would come from the NGO data
-        
+
         // Set click listener
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
@@ -80,7 +80,7 @@ public class NGOAdapter extends RecyclerView.Adapter<NGOAdapter.NGOViewHolder> {
             ratingTextView = itemView.findViewById(R.id.ngo_rating);
         }
     }
-    
+
     // Method to update the dataset
     public void updateData(List<NGO> newNGOList) {
         this.ngoList.clear();

@@ -4,7 +4,7 @@
     <solid android:color="@color/blue" /> <!-- Using full opacity blue instead of blue_50 -->
     <stroke
         android:width="1.5dp"
-        android:color="#FFFFFF" /> <!-- Adding white border for contrast -->
+        android:color="#6AB8FD" /> <!-- Adding white border for contrast -->
     <size
         android:width="60dp"
         android:height="60dp" /> <!-- Circle Size -->

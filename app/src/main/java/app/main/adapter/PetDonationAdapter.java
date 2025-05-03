@@ -17,7 +17,7 @@ import app.main.R;
 import app.main.model.PetDonation;
 
 public class PetDonationAdapter extends RecyclerView.Adapter<PetDonationAdapter.ViewHolder> {
-    
+
     private final List<PetDonation> petDonations;
     private OnDonateClickListener listener;
 
@@ -44,23 +44,23 @@ public class PetDonationAdapter extends RecyclerView.Adapter<PetDonationAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         PetDonation pet = petDonations.get(position);
-        
+
         // Set pet image
         holder.petImage.setImageResource(pet.getImageResId());
-        
+
         // Set pet description
         holder.petDescription.setText(pet.getDescription());
-        
+
         // Set donation amounts
         holder.amountRaised.setText(pet.getAmountRaisedFormatted());
         holder.amountNeeded.setText(pet.getAmountNeededFormatted());
-        
+
         // Set progress
         holder.donationProgress.setProgress(pet.getProgressPercentage());
-        
+
         // Set days left
         holder.daysLeft.setText(pet.getDaysLeftFormatted());
-        
+
         // Set button click listener
         holder.donateButton.setOnClickListener(v -> {
             if (listener != null) {

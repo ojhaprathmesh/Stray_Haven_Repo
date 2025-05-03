@@ -36,10 +36,10 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
+            android:fontFamily="@font/jet_brains_mono__bold"
             android:text="@string/heading_notification"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:fontFamily="@font/jet_brains_mono__bold" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -72,10 +72,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/desc_empty_notifications"
+        android:fontFamily="@font/jet_brains_mono__medium"
         android:text="@string/no_notifications"
         android:textColor="@color/gray_80"
         android:textSize="16sp"
-        android:fontFamily="@font/jet_brains_mono__medium"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -12,9 +12,23 @@ public class NGO {
     }
 
     // Getters
-    public String getName() { return name; }
-    public String getLocation() { return location; }
-    public String getPets() { return pets; }
-    public String getContact() { return contact; }
-    public String getTagline() { return tagline; }
+    public String getName() {
+        return name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getPets() {
+        return pets;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public String getTagline() {
+        return tagline;
+    }
 } 

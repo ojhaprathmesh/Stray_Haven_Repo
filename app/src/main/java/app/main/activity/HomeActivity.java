@@ -107,32 +107,32 @@ public class HomeActivity extends BaseActivity {
         View button2 = findViewById(R.id.nav_button2);
         View button3 = findViewById(R.id.nav_button3);
         View button4 = findViewById(R.id.nav_button4);
-        
+
         FloatingMenuManager menuManager = new FloatingMenuManager(
                 mainButton, button1, button2, button3, button4);
-        
+
         // Set click listeners for each button
         menuManager.setButton1ClickListener(v -> {
             Toast.makeText(this, "Button 1 clicked", Toast.LENGTH_SHORT).show();
             // Add your action here
         });
-        
+
         menuManager.setButton2ClickListener(v -> {
             Toast.makeText(this, "Button 2 clicked", Toast.LENGTH_SHORT).show();
             // Add your action here
         });
-        
+
         menuManager.setButton3ClickListener(v -> {
             Toast.makeText(this, "Button 3 clicked", Toast.LENGTH_SHORT).show();
             // Add your action here
         });
-        
+
         menuManager.setButton4ClickListener(v -> {
             Toast.makeText(this, "Button 4 clicked", Toast.LENGTH_SHORT).show();
             // Add your action here
         });
     }
-    
+
     private void setupRedirectButtons() {
         // Set up click listener for the "Contact the nearest NGO" section
         ConstraintLayout contactRedirect = findViewById(R.id.redirect_contact);
@@ -140,21 +140,21 @@ public class HomeActivity extends BaseActivity {
             contactRedirect.setOnClickListener(v -> {
                 // Launch the NGO Details Activity with shared element transition
                 Intent intent = new Intent(HomeActivity.this, NGODetailsActivity.class);
-                
+
                 View floatingMenuContainer = findViewById(R.id.floating_menu_container);
-                
+
                 // Create the transition
-                androidx.core.app.ActivityOptionsCompat options = 
-                    androidx.core.app.ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        this, 
-                        floatingMenuContainer, 
-                        "floating_menu"
-                    );
-                
+                androidx.core.app.ActivityOptionsCompat options =
+                        androidx.core.app.ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                this,
+                                floatingMenuContainer,
+                                "floating_menu"
+                        );
+
                 startActivity(intent, options.toBundle());
             });
         }
-        
+
         // Set up click listener for the invitation code section (if needed in the future)
         ConstraintLayout invitationRedirect = findViewById(R.id.redirect_invitation);
         if (invitationRedirect != null) {
