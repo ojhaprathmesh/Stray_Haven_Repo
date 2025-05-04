@@ -103,7 +103,8 @@
             android:layout_gravity="center"
             android:contentDescription="@string/desc_nav_button3"
             android:padding="8dp"
-            android:src="@drawable/img_donate" />
+            android:src="@drawable/img_donate"
+            app:tint="@color/black" />
     </FrameLayout>
 
     <!-- Button 4 - Straight Left -->
