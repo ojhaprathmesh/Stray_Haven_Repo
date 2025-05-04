@@ -56,8 +56,8 @@ public class NGODetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ngo_details);
 
-        enforceLightMode();
-        applySystemInsets(this, findViewById(R.id.ngo_details_container));
+        // Set up UI with common configurations
+        setupUI(findViewById(R.id.ngo_details_container));
 
         initViews();
         setupRecyclerView();

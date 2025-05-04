@@ -1,7 +1,5 @@
 package app.main.activity;
 
-import static app.main.util.UI.*;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +21,7 @@ import java.util.List;
 import app.main.R;
 import app.main.adapter.ViewPagerAdapter;
 import app.main.component.FloatingMenuManager;
+import app.main.util.UI;
 
 public class HomeActivity extends BaseActivity {
 
@@ -43,10 +42,14 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home); // Set the content view to the corresponding XML layout
 
-        enforceLightMode();
-        applySystemInsets(this, findViewById(R.id.home));
-        welcomeUser();
-        populateStoryTray(this, findViewById(R.id.story_tray), 10);
+        // Set up UI with common configurations
+        setupUI(findViewById(R.id.home));
+
+        // Show welcome message
+        UI.welcomeUser(this);
+
+        // Initialize UI components
+        UI.populateStoryTray(this, findViewById(R.id.story_tray), 10);
         setupAdvCarousel();
         setupFloatingMenu();
         setupRedirectButtons();
