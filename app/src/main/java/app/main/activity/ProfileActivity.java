@@ -49,7 +49,7 @@ public class ProfileActivity extends BaseActivity {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                handleBackPressed();
+                finish();
             }
         });
     }
@@ -158,6 +158,5 @@ public class ProfileActivity extends BaseActivity {
 
     private void handleBackPressed() {
         finish();
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
     }
 } 

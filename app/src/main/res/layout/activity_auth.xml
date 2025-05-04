@@ -38,7 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:orientation="horizontal"
-
             android:gravity="center"
             android:elevation="4dp"
             android:layout_marginBottom="24dp">
@@ -72,7 +71,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginBottom="16dp">
-            
+
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
@@ -84,12 +83,12 @@
                 android:paddingEnd="8dp"
                 android:textColor="#222222"
                 android:textColorHint="#B0B0B0" />
-                
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#E0E0E0"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp" />
         </LinearLayout>
 
         <!-- Password Field -->
@@ -98,7 +97,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginBottom="16dp">
-            
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp">
@@ -122,17 +121,61 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_eye"
                     android:padding="2dp" />
             </RelativeLayout>
-            
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#E0E0E0"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp" />
         </LinearLayout>
 
-        <!-- Forgot Password -->
+        <!-- Confirm Password Field - Only visible in Sign Up mode -->
+        <LinearLayout
+            android:id="@+id/confirmPasswordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <EditText
+                    android:id="@+id/etConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="40dp"
+                    android:textColor="#222222"
+                    android:textColorHint="#B0B0B0" />
+
+                <ImageView
+                    android:id="@+id/ivToggleConfirmPassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_eye"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:padding="2dp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E0E0E0"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Forgot Password - Only visible in Login mode -->
         <TextView
             android:id="@+id/tvForgotPassword"
             android:layout_width="wrap_content"
@@ -143,9 +186,9 @@
             android:layout_gravity="end"
             android:layout_marginBottom="24dp" />
 
-        <!-- Login Button -->
+        <!-- Action Button (Login/SignUp) -->
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnAction"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="Log In"

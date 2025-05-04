@@ -23,17 +23,11 @@
             </intent-filter>
         </activity>
 
-        <!-- Add Login Activity -->
+        <!-- Combined Authentication Activity -->
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.AuthActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-        <!-- Add Sign Up Activity -->
-        <activity
-            android:name=".activity.SignUpActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.StrayHaven.SmoothTransition" />
 
         <activity
             android:name=".activity.HomeActivity"
