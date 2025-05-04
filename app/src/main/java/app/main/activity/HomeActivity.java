@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -49,6 +50,7 @@ public class HomeActivity extends BaseActivity {
         setupAdvCarousel();
         setupFloatingMenu();
         setupRedirectButtons();
+        setupTopMenuButtons();
     }
 
     @Override
@@ -161,6 +163,30 @@ public class HomeActivity extends BaseActivity {
             invitationRedirect.setOnClickListener(v -> {
                 Toast.makeText(this, "Invitation code feature coming soon!", Toast.LENGTH_SHORT).show();
                 // Add the invitation code functionality here when ready
+            });
+        }
+    }
+
+    private void setupTopMenuButtons() {
+        // Set up profile button click listener
+        ImageButton profileButton = findViewById(R.id.profile);
+        if (profileButton != null) {
+            profileButton.setOnClickListener(v -> {
+                // Navigate to profile activity with transition
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                // Apply custom transition animation
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            });
+        }
+
+        // Set up notification button click listener
+        ImageButton notificationButton = findViewById(R.id.notification);
+        if (notificationButton != null) {
+            notificationButton.setOnClickListener(v -> {
+                // Navigate to notifications activity (already implemented)
+                Intent intent = new Intent(HomeActivity.this, NotificationsActivity.class);
+                startActivity(intent);
             });
         }
     }

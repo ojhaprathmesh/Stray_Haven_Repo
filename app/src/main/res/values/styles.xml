@@ -7,4 +7,9 @@
         <item name="android:layout_marginHorizontal">20dp</item>
         <item name="android:background">@color/light_gray</item>
     </style>
+
+    <style name="circleImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

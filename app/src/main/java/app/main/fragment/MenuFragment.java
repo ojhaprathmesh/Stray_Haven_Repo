@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import app.main.R;
 import app.main.activity.NotificationsActivity;
+import app.main.activity.ProfileActivity;
 
 public class MenuFragment extends Fragment {
 
@@ -32,14 +32,13 @@ public class MenuFragment extends Fragment {
         ImageButton profileBtn = view.findViewById(R.id.profile);
 
         notificationBtn.setOnClickListener(v -> {
-            // Launch dedicated NotificationsActivity
             Intent intent = new Intent(requireContext(), NotificationsActivity.class);
             startActivity(intent);
         });
 
         profileBtn.setOnClickListener(v -> {
-            // Implement logic for profile button click
-            Toast.makeText(requireContext(), "Profile Clicked", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(requireContext(), ProfileActivity.class);
+            startActivity(intent);
         });
     }
 }
