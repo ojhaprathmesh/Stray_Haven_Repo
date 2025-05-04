@@ -1,17 +1,7 @@
 package app.main.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
-import android.util.Patterns;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -19,17 +9,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import app.main.R;
+import app.main.util.AuthService;
+import app.main.util.AuthUIHelper;
+import app.main.util.AuthValidator;
 
 /**
  * AuthActivity combines login and signup functionality in one screen
  * with smooth transitions between the two modes.
  */
 public class AuthActivity extends BaseActivity {
-
-    private static final String TAG = "AuthActivity";
 
     // UI elements
     private EditText etEmail;
@@ -49,12 +38,9 @@ public class AuthActivity extends BaseActivity {
     private boolean isPasswordVisible = false;
     private boolean isConfirmPasswordVisible = false;
 
-    // SharedPreferences constants
-    private static final String PREF_NAME = "StrayHavenPrefs";
-    private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
-    private static final String KEY_USER_EMAIL = "userEmail";
-    private static final String KEY_USER_NAME = "userName";
-    private static final String KEY_USER_ID = "userId";
+    // Helpers and services
+    private AuthService authService;
+    private AuthUIHelper authUIHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +60,12 @@ public class AuthActivity extends BaseActivity {
 
         setContentView(R.layout.activity_auth);
 
+        // Initialize helpers and services
+        authService = new AuthService(this);
+        authUIHelper = new AuthUIHelper(this);
+
         // Check if user is already logged in
-        if (isLoggedIn()) {
+        if (authService.isUserLoggedIn()) {
             navigateToHome();
             return;
         }
@@ -87,7 +77,8 @@ public class AuthActivity extends BaseActivity {
         setupClickListeners();
 
         // Initial UI setup based on mode
-        updateUIForMode();
+        authUIHelper.updateUIForMode(isLoginMode, btnAction, tvForgotPassword,
+                confirmPasswordLayout, tvLoginTab, tvSignUpTab);
     }
 
     @Override
@@ -146,53 +137,9 @@ public class AuthActivity extends BaseActivity {
     private void switchToLoginMode() {
         if (!isLoginMode) {
             isLoginMode = true;
-
-            // Change tab appearances
-            tvLoginTab.setTextColor(getResources().getColor(android.R.color.white));
-            tvLoginTab.setBackgroundResource(R.drawable.bg_tab_selected);
-            tvSignUpTab.setTextColor(getResources().getColor(android.R.color.black));
-            tvSignUpTab.setBackgroundResource(android.R.color.transparent);
-
-            // Update button text
-            btnAction.setText("Log In");
-
-            // Hide confirm password with animation
-            Animation slideOut = AnimationUtils.loadAnimation(this, R.anim.slide_out_right);
-            slideOut.setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationStart(Animation animation) {
-                    // Hide forgot password initially so it can be animated in
-                    tvForgotPassword.setVisibility(View.INVISIBLE);
-                }
-
-                @Override
-                public void onAnimationEnd(Animation animation) {
-                    // Show forgot password option with a nice animation
-                    tvForgotPassword.setVisibility(View.VISIBLE);
-                    tvForgotPassword.setAlpha(0f);
-                    tvForgotPassword.setTranslationY(10f); // Slight offset to animate from
-
-                    // Animate in with fade and slight upward movement
-                    tvForgotPassword.animate()
-                            .alpha(1f)
-                            .translationY(0f)
-                            .setDuration(300)
-                            .setInterpolator(new android.view.animation.DecelerateInterpolator())
-                            .start();
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-                    // Animation repeated
-                }
-            });
-
-            confirmPasswordLayout.startAnimation(slideOut);
-            confirmPasswordLayout.setVisibility(View.GONE);
-
-            // Clear errors
-            etEmail.setError(null);
-            etPassword.setError(null);
+            authUIHelper.switchToLoginMode(tvLoginTab, tvSignUpTab, btnAction,
+                    tvForgotPassword, confirmPasswordLayout,
+                    etEmail, etPassword);
         }
     }
 
@@ -202,54 +149,9 @@ public class AuthActivity extends BaseActivity {
     private void switchToSignUpMode() {
         if (isLoginMode) {
             isLoginMode = false;
-
-            // Change tab appearances
-            tvSignUpTab.setTextColor(getResources().getColor(android.R.color.white));
-            tvSignUpTab.setBackgroundResource(R.drawable.bg_tab_selected);
-            tvLoginTab.setTextColor(getResources().getColor(android.R.color.black));
-            tvLoginTab.setBackgroundResource(android.R.color.transparent);
-
-            // Update button text
-            btnAction.setText("Sign Up");
-
-            // Hide forgot password option immediately
-            tvForgotPassword.setVisibility(View.GONE);
-
-            // Show confirm password with animation
-            confirmPasswordLayout.setVisibility(View.VISIBLE);
-            Animation slideIn = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
-            confirmPasswordLayout.startAnimation(slideIn);
-
-            // Clear errors
-            etEmail.setError(null);
-            etPassword.setError(null);
-            etConfirmPassword.setError(null);
-        }
-    }
-
-    /**
-     * Update UI elements based on current mode
-     */
-    private void updateUIForMode() {
-        if (isLoginMode) {
-            btnAction.setText("Log In");
-            tvForgotPassword.setVisibility(View.VISIBLE);
-            tvForgotPassword.setAlpha(1f); // Ensure full visibility
-            confirmPasswordLayout.setVisibility(View.GONE);
-
-            tvLoginTab.setTextColor(getResources().getColor(android.R.color.white));
-            tvLoginTab.setBackgroundResource(R.drawable.bg_tab_selected);
-            tvSignUpTab.setTextColor(getResources().getColor(android.R.color.black));
-            tvSignUpTab.setBackgroundResource(android.R.color.transparent);
-        } else {
-            btnAction.setText("Sign Up");
-            tvForgotPassword.setVisibility(View.GONE);
-            confirmPasswordLayout.setVisibility(View.VISIBLE);
-
-            tvSignUpTab.setTextColor(getResources().getColor(android.R.color.white));
-            tvSignUpTab.setBackgroundResource(R.drawable.bg_tab_selected);
-            tvLoginTab.setTextColor(getResources().getColor(android.R.color.black));
-            tvLoginTab.setBackgroundResource(android.R.color.transparent);
+            authUIHelper.switchToSignUpMode(tvLoginTab, tvSignUpTab, btnAction,
+                    tvForgotPassword, confirmPasswordLayout,
+                    etEmail, etPassword, etConfirmPassword);
         }
     }
 
@@ -268,40 +170,16 @@ public class AuthActivity extends BaseActivity {
      * Toggle the visibility of the password
      */
     private void togglePasswordVisibility() {
-        if (isPasswordVisible) {
-            // Hide password
-            etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            ivTogglePassword.setImageResource(R.drawable.ic_eye);
-        } else {
-            // Show password
-            etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            // Uncomment when eye-off icon is available
-            // ivTogglePassword.setImageResource(R.drawable.ic_eye_off);
-        }
-        isPasswordVisible = !isPasswordVisible;
-
-        // Maintain cursor position
-        etPassword.setSelection(etPassword.getText().length());
+        isPasswordVisible = authUIHelper.togglePasswordVisibility(
+                etPassword, ivTogglePassword, isPasswordVisible);
     }
 
     /**
      * Toggle the visibility of the confirm password field
      */
     private void toggleConfirmPasswordVisibility() {
-        if (isConfirmPasswordVisible) {
-            // Hide password
-            etConfirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            ivToggleConfirmPassword.setImageResource(R.drawable.ic_eye);
-        } else {
-            // Show password
-            etConfirmPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            // Uncomment when eye-off icon is available
-            // ivToggleConfirmPassword.setImageResource(R.drawable.ic_eye_off);
-        }
-        isConfirmPasswordVisible = !isConfirmPasswordVisible;
-
-        // Maintain cursor position
-        etConfirmPassword.setSelection(etConfirmPassword.getText().length());
+        isConfirmPasswordVisible = authUIHelper.togglePasswordVisibility(
+                etConfirmPassword, ivToggleConfirmPassword, isConfirmPasswordVisible);
     }
 
     /**
@@ -313,43 +191,22 @@ public class AuthActivity extends BaseActivity {
         String password = etPassword.getText().toString().trim();
 
         // Validate input
-        if (!validateLoginInput(email, password)) {
+        if (!AuthValidator.validateLoginInput(etEmail, etPassword)) {
             return;
         }
 
         // Call authentication service
-        authenticateUser(email, password);
-    }
+        authService.login(email, password, new AuthService.AuthCallback() {
+            @Override
+            public void onSuccess() {
+                navigateToHome();
+            }
 
-    /**
-     * Validate login input fields
-     */
-    private boolean validateLoginInput(String email, String password) {
-        boolean isValid = true;
-
-        // Check email
-        if (TextUtils.isEmpty(email)) {
-            etEmail.setError("Email is required");
-            isValid = false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            etEmail.setError("Please enter a valid email");
-            isValid = false;
-        } else {
-            etEmail.setError(null);
-        }
-
-        // Check password
-        if (TextUtils.isEmpty(password)) {
-            etPassword.setError("Password is required");
-            isValid = false;
-        } else if (password.length() < 6) {
-            etPassword.setError("Password must be at least 6 characters");
-            isValid = false;
-        } else {
-            etPassword.setError(null);
-        }
-
-        return isValid;
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(AuthActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -359,113 +216,24 @@ public class AuthActivity extends BaseActivity {
         // Get input values
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
-        String confirmPassword = etConfirmPassword.getText().toString().trim();
 
         // Validate input
-        if (!validateSignupInput(email, password, confirmPassword)) {
+        if (!AuthValidator.validateSignupInput(etEmail, etPassword, etConfirmPassword)) {
             return;
         }
 
         // Call registration service
-        registerUser(email, password);
-    }
+        authService.register(email, password, new AuthService.AuthCallback() {
+            @Override
+            public void onSuccess() {
+                navigateToHome();
+            }
 
-    /**
-     * Validate signup input fields
-     */
-    private boolean validateSignupInput(String email, String password, String confirmPassword) {
-        boolean isValid = true;
-
-        // Check email
-        if (TextUtils.isEmpty(email)) {
-            etEmail.setError("Email is required");
-            isValid = false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            etEmail.setError("Please enter a valid email");
-            isValid = false;
-        } else {
-            etEmail.setError(null);
-        }
-
-        // Check password
-        if (TextUtils.isEmpty(password)) {
-            etPassword.setError("Password is required");
-            isValid = false;
-        } else if (password.length() < 6) {
-            etPassword.setError("Password must be at least 6 characters");
-            isValid = false;
-        } else {
-            etPassword.setError(null);
-        }
-
-        // Check confirm password
-        if (TextUtils.isEmpty(confirmPassword)) {
-            etConfirmPassword.setError("Please confirm your password");
-            isValid = false;
-        } else if (!password.equals(confirmPassword)) {
-            etConfirmPassword.setError("Passwords do not match");
-            isValid = false;
-        } else {
-            etConfirmPassword.setError(null);
-        }
-
-        return isValid;
-    }
-
-    /**
-     * Authenticate user (will be replaced with actual API call)
-     */
-    private void authenticateUser(String email, String password) {
-        // TODO: Replace with actual API call
-        // Example of what the implementation might look like:
-        //
-        // ApiClient.login(email, password, new AuthCallback() {
-        //     @Override
-        //     public void onSuccess(User user) {
-        //         saveLoginState(email, user.getId(), user.getName());
-        //         navigateToHome();
-        //     }
-        //
-        //     @Override
-        //     public void onFailure(Exception e) {
-        //         Toast.makeText(AuthActivity.this, "Login failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        //     }
-        // });
-
-        // For now, mock implementation
-        if (Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length() >= 6) {
-            setLoggedIn(true);
-            setUserEmail(email);
-            navigateToHome();
-        } else {
-            Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    /**
-     * Register a new user (will be replaced with actual API call)
-     */
-    private void registerUser(String email, String password) {
-        // TODO: Replace with actual API call
-        // Example of what the implementation might look like:
-        //
-        // ApiClient.register(email, password, new AuthCallback() {
-        //     @Override
-        //     public void onSuccess(User user) {
-        //         saveLoginState(email, user.getId(), user.getName());
-        //         navigateToHome();
-        //     }
-        //
-        //     @Override
-        //     public void onFailure(Exception e) {
-        //         Toast.makeText(AuthActivity.this, "Registration failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        //     }
-        // });
-
-        // For now, mock implementation
-        setLoggedIn(true);
-        setUserEmail(email);
-        navigateToHome();
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(AuthActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -484,105 +252,34 @@ public class AuthActivity extends BaseActivity {
     private void handleForgotPassword() {
         String email = etEmail.getText().toString().trim();
 
-        if (TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            Toast.makeText(this, "Please enter a valid email address first", Toast.LENGTH_SHORT).show();
-            etEmail.requestFocus();
-        } else {
-            // TODO: Replace with actual API call for password reset
-            Toast.makeText(this, "Password reset email sent to " + email, Toast.LENGTH_LONG).show();
-        }
+        authService.resetPassword(email, new AuthService.AuthCallback() {
+            @Override
+            public void onSuccess() {
+                // Success is handled with Toast in the AuthService
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(AuthActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                etEmail.requestFocus();
+            }
+        });
     }
 
     /**
      * Handle Google Sign In
      */
     private void handleGoogleSignIn() {
-        // TODO: Implement Google Sign-In API integration
-        Toast.makeText(this, "Google Sign In coming soon", Toast.LENGTH_SHORT).show();
+        authService.googleSignIn(new AuthService.AuthCallback() {
+            @Override
+            public void onSuccess() {
+                navigateToHome();
+            }
 
-        // For demo purposes, simulate successful login
-        navigateToHome();
-    }
-
-    // ----- SharedPreferences Methods -----
-
-    /**
-     * Get the SharedPreferences instance
-     */
-    private SharedPreferences getSharedPreferences() {
-        return getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-    }
-
-    /**
-     * Save the login status
-     */
-    private void setLoggedIn(boolean isLoggedIn) {
-        SharedPreferences.Editor editor = getSharedPreferences().edit();
-        editor.putBoolean(KEY_IS_LOGGED_IN, isLoggedIn);
-        editor.apply();
-    }
-
-    /**
-     * Check if user is logged in
-     */
-    private boolean isLoggedIn() {
-        return getSharedPreferences().getBoolean(KEY_IS_LOGGED_IN, false);
-    }
-
-    /**
-     * Save user email
-     */
-    private void setUserEmail(String email) {
-        SharedPreferences.Editor editor = getSharedPreferences().edit();
-        editor.putString(KEY_USER_EMAIL, email);
-        editor.apply();
-    }
-
-    /**
-     * Get stored user email
-     */
-    private String getUserEmail() {
-        return getSharedPreferences().getString(KEY_USER_EMAIL, "");
-    }
-
-    /**
-     * Save user name
-     */
-    private void setUserName(String name) {
-        SharedPreferences.Editor editor = getSharedPreferences().edit();
-        editor.putString(KEY_USER_NAME, name);
-        editor.apply();
-    }
-
-    /**
-     * Get stored user name
-     */
-    private String getUserName() {
-        return getSharedPreferences().getString(KEY_USER_NAME, "");
-    }
-
-    /**
-     * Save user ID
-     */
-    private void setUserId(String userId) {
-        SharedPreferences.Editor editor = getSharedPreferences().edit();
-        editor.putString(KEY_USER_ID, userId);
-        editor.apply();
-    }
-
-    /**
-     * Get stored user ID
-     */
-    private String getUserId() {
-        return getSharedPreferences().getString(KEY_USER_ID, "");
-    }
-
-    /**
-     * Clear all user data from SharedPreferences (logout)
-     */
-    private void clearUserData() {
-        SharedPreferences.Editor editor = getSharedPreferences().edit();
-        editor.clear();
-        editor.apply();
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(AuthActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 } 

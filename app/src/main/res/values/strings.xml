@@ -70,4 +70,6 @@
     <string name="username">Prathmesh Ojha</string>
     <string name="support_number">8595608059</string>
     <string name="support_mail">support@strayhaven.com</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="btn_log_in">Log In</string>
 </resources>
