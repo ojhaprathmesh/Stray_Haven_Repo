@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1009300469001",
+    "project_id": "stray-haven-app",
+    "storage_bucket": "stray-haven-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009300469001:android:7cf9894c466be0d31c0fd8",
+        "android_client_info": {
+          "package_name": "app.main"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2UIGdWGPjo9V-O2jlm4IjTaIC_moabZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
