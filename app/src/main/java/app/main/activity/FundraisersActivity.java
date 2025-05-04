@@ -1,7 +1,7 @@
 package app.main.activity;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -11,15 +11,17 @@ import app.main.R;
 import app.main.adapter.PetDonationAdapter;
 import app.main.model.PetDonation;
 
-public class FundraisersActivity extends AppCompatActivity {
+public class FundraisersActivity extends BaseActivity {
 
     private RecyclerView fundraisersRecyclerView;
-    private PetDonationAdapter petDonationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fundraisers);
+
+        // Setup UI
+        setupUI(findViewById(R.id.fundraisers));
 
         // Initialize views
         fundraisersRecyclerView = findViewById(R.id.fundraisersRecyclerView);
@@ -31,13 +33,13 @@ public class FundraisersActivity extends AppCompatActivity {
     private void setupFundraisersRecyclerView() {
         // Create adapter with demo data (replace with real data from your database)
         List<PetDonation> donationsList = getDemoPetDonations();
-        petDonationAdapter = new PetDonationAdapter(donationsList);
+        PetDonationAdapter petDonationAdapter = new PetDonationAdapter(donationsList);
         
         // Set adapter to RecyclerView
         fundraisersRecyclerView.setAdapter(petDonationAdapter);
     }
-    
-    // Demo data method - replace with your actual data source
+
+    // Demo data
     private List<PetDonation> getDemoPetDonations() {
         List<PetDonation> donations = new ArrayList<>();
         
