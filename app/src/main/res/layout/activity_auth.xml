@@ -198,6 +198,15 @@
             android:background="@drawable/bg_button_gradient"
             android:layout_marginBottom="24dp" />
 
+        <!-- Loading Indicator -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone"
+            android:indeterminateTint="@color/colorPrimary" />
+
         <!-- OR Divider -->
         <TextView
             android:layout_width="wrap_content"

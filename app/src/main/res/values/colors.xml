@@ -13,4 +13,9 @@
     <color name="light_gray">#FFA3A3A3</color>
     <color name="notification_unread">#F5F5F5</color>
     <color name="red">#F44336</color>
+
+    <!-- Theme colors -->
+    <color name="colorPrimary">#FF07B2A8</color>
+    <color name="colorPrimaryDark">#FF059990</color>
+    <color name="colorAccent">#FF7EBFF8</color>
 </resources>
