@@ -190,7 +190,7 @@ public class SplashActivity extends BaseActivity {
     }
     
     private void startHomeActivity() {
-        Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
         
         // Apply slide animations for transition to HomeActivity
         startActivity(intent);

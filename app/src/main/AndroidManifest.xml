@@ -23,6 +23,18 @@
             </intent-filter>
         </activity>
 
+        <!-- Add Login Activity -->
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!-- Add Sign Up Activity -->
+        <activity
+            android:name=".activity.SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity
             android:name=".activity.HomeActivity"
             android:exported="false">
@@ -37,7 +49,7 @@
             android:name=".activity.NotificationsActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-            
+
         <activity
             android:name=".activity.NGODetailsActivity"
             android:exported="false"
