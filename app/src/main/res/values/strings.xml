@@ -54,12 +54,12 @@
     <string name="donation_history">Donation History</string>
     <string name="refer_earn">Refer &amp; Earn</string>
     <string name="support">Support</string>
-    <string name="edit_profile">Edit Profile</string>
+    <string name="edit_profile">Edit Profile —></string>
     <string name="desc_profile_image">Profile image</string>
     <string name="desc_back">Back button</string>
-    <string name="desc_forward">Forward button</string>
-    <string name="desc_heart_icon">Heart icon</string>
-    <string name="desc_donation_icon">Donation icon</string>
+    <string name="desc_forward">Redirect</string>
+    <string name="desc_live_icon">Donation icon</string>
+    <string name="desc_donation_icon">Hospital icon</string>
     <string name="desc_gem_icon">GEM icon</string>
     <string name="desc_history_icon">History icon</string>
     <string name="desc_refer_icon">Referral icon</string>
@@ -68,4 +68,6 @@
     <string name="desc_email_icon">Email icon</string>
     <string name="support_overlay_title">Contact Support</string>
     <string name="username">Prathmesh Ojha</string>
+    <string name="support_number">8595608059</string>
+    <string name="support_mail">support@strayhaven.com</string>
 </resources>

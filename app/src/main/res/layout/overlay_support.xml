@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/support_overlay"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -34,8 +35,9 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/desc_phone_icon"
-            android:src="@android:drawable/ic_menu_call"
-            android:tint="@color/green" />
+            android:src="@drawable/img_phone"
+            app:tint="@color/green"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/phone_number"
@@ -44,7 +46,7 @@
             android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:fontFamily="@font/jet_brains_mono__bold"
-            android:text="8595608059"
+            android:text="@string/support_number"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -52,8 +54,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/desc_forward"
-            android:src="@android:drawable/ic_media_play"
-            android:tint="@color/green" />
+            android:src="@drawable/img_arrow"
+            tools:ignore="ImageContrastCheck" />
     </LinearLayout>
 
     <View
@@ -78,7 +80,8 @@
             android:layout_height="24dp"
             android:contentDescription="@string/desc_email_icon"
             android:src="@android:drawable/ic_dialog_email"
-            android:tint="@color/green" />
+            app:tint="@color/green"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/email_address"
@@ -87,7 +90,7 @@
             android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:fontFamily="@font/jet_brains_mono__bold"
-            android:text="support@strayhaven.com"
+            android:text="@string/support_mail"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
@@ -95,7 +98,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/desc_forward"
-            android:src="@android:drawable/ic_media_play"
-            android:tint="@color/green" />
+            android:src="@drawable/img_arrow"
+            tools:ignore="ImageContrastCheck" />
     </LinearLayout>
 </LinearLayout> 
