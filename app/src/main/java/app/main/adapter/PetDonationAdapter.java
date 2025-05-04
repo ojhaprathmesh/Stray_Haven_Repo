@@ -11,62 +11,37 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import app.main.R;
 import app.main.model.PetDonation;
 
-public class PetDonationAdapter extends RecyclerView.Adapter<PetDonationAdapter.ViewHolder> {
+public class PetDonationAdapter extends RecyclerView.Adapter<PetDonationAdapter.PetDonationViewHolder> {
 
     private final List<PetDonation> petDonations;
-    private OnDonateClickListener listener;
-
-    public interface OnDonateClickListener {
-        void onDonateClick(PetDonation petDonation, int position);
-    }
+    private OnDonateClickListener donateClickListener;
 
     public PetDonationAdapter(List<PetDonation> petDonations) {
         this.petDonations = petDonations;
     }
 
     public void setOnDonateClickListener(OnDonateClickListener listener) {
-        this.listener = listener;
+        this.donateClickListener = listener;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_pet_donation, parent, false);
-        return new ViewHolder(view);
+    public PetDonationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pet_donation, parent, false);
+        return new PetDonationViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        PetDonation pet = petDonations.get(position);
-
-        // Set pet image
-        holder.petImage.setImageResource(pet.getImageResId());
-
-        // Set pet description
-        holder.petDescription.setText(pet.getDescription());
-
-        // Set donation amounts
-        holder.amountRaised.setText(pet.getAmountRaisedFormatted());
-        holder.amountNeeded.setText(pet.getAmountNeededFormatted());
-
-        // Set progress
-        holder.donationProgress.setProgress(pet.getProgressPercentage());
-
-        // Set days left
-        holder.daysLeft.setText(pet.getDaysLeftFormatted());
-
-        // Set button click listener
-        holder.donateButton.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onDonateClick(pet, position);
-            }
-        });
+    public void onBindViewHolder(@NonNull PetDonationViewHolder holder, int position) {
+        PetDonation donation = petDonations.get(position);
+        holder.bind(donation);
     }
 
     @Override
@@ -74,24 +49,60 @@ public class PetDonationAdapter extends RecyclerView.Adapter<PetDonationAdapter.
         return petDonations.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        final ImageView petImage;
-        final TextView petDescription;
-        final TextView amountRaised;
-        final TextView amountNeeded;
-        final ProgressBar donationProgress;
-        final Button donateButton;
-        final TextView daysLeft;
+    public interface OnDonateClickListener {
+        void onDonateClick(PetDonation petDonation, int position);
+    }
 
-        ViewHolder(View view) {
-            super(view);
-            petImage = view.findViewById(R.id.petImage);
-            petDescription = view.findViewById(R.id.petDescription);
-            amountRaised = view.findViewById(R.id.amountRaised);
-            amountNeeded = view.findViewById(R.id.amountNeeded);
-            donationProgress = view.findViewById(R.id.donationProgress);
-            donateButton = view.findViewById(R.id.donateButton);
-            daysLeft = view.findViewById(R.id.daysLeft);
+    public class PetDonationViewHolder extends RecyclerView.ViewHolder {
+        private final ImageView petImage;
+        private final TextView petDescription;
+        private final TextView amountRaised;
+        private final TextView amountNeeded;
+        private final ProgressBar donationProgress;
+        private final TextView daysLeft;
+        private final Button donateButton;
+
+        public PetDonationViewHolder(@NonNull View itemView) {
+            super(itemView);
+            petImage = itemView.findViewById(R.id.petImage);
+            petDescription = itemView.findViewById(R.id.petDescription);
+            amountRaised = itemView.findViewById(R.id.amountRaised);
+            amountNeeded = itemView.findViewById(R.id.amountNeeded);
+            donationProgress = itemView.findViewById(R.id.donationProgress);
+            daysLeft = itemView.findViewById(R.id.daysLeft);
+            donateButton = itemView.findViewById(R.id.donateButton);
+        }
+
+        public void bind(PetDonation donation) {
+            // Set image
+            petImage.setImageResource(donation.getImageResourceId());
+            
+            // Set description
+            petDescription.setText(donation.getDescription());
+            
+            // Format currency amounts
+            NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(new Locale("en", "IN"));
+            String raisedFormatted = currencyFormat.format(donation.getAmountRaised() / 100.0)
+                    .replace("$", "₹");
+            String neededFormatted = currencyFormat.format(donation.getAmountNeeded() / 100.0)
+                    .replace("$", "₹");
+            
+            // Set formatted text
+            amountRaised.setText(String.format("%s raised", raisedFormatted));
+            amountNeeded.setText(String.format("%s needed", neededFormatted));
+            
+            // Set progress
+            donationProgress.setProgress(donation.getProgressPercentage());
+            
+            // Set days left
+            daysLeft.setText(String.format("%d Days Left", donation.getDaysLeft()));
+            
+            // Set click listener for donate button
+            donateButton.setOnClickListener(v -> {
+                if (donateClickListener != null) {
+                    donateClickListener.onDonateClick(donation, getAdapterPosition());
+                }
+            });
         }
     }
 } 

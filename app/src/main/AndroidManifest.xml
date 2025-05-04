@@ -29,6 +29,11 @@
         </activity>
 
         <activity
+            android:name=".activity.FundraisersActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
             android:name=".activity.NotificationsActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

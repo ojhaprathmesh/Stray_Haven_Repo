@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fundraisers"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.FundraisersActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Menu Component -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/menu_component"
+            android:name="app.main.fragment.MenuFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout="@layout/comp_menu" />
+
+        <!-- Slogan Component -->
+        <include
+            android:id="@+id/fundraiser_slogan"
+            layout="@layout/comp_slogan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/menu_component" />
+
+        <!-- Fundraiser Items RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fundraisersRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="12dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fundraiser_slogan"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_pet_donation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Floating Navigation Menu -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/floating_menu_container"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="30dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:padding="20dp"
+        android:transitionName="floating_menu"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp">
+
+        <include
+            android:id="@+id/floating_nav_menu"
+            layout="@layout/comp_floating_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|end" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 
