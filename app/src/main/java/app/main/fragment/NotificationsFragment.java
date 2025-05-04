@@ -41,14 +41,14 @@ public class NotificationsFragment extends Fragment {
 
         // Set up RecyclerView
         setupRecyclerView();
-        
+
         // Load placeholder data
         loadPlaceholderData();
     }
 
     private void setupRecyclerView() {
         adapter = new NotificationAdapter();
-        
+
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(adapter);
     }
@@ -56,25 +56,25 @@ public class NotificationsFragment extends Fragment {
     private void loadPlaceholderData() {
         // Placeholder data - will be replaced with real data from Firebase
         List<Notification> notifications = new ArrayList<>();
-        
+
         notifications.add(new Notification(
-            R.drawable.img_pet1,
-            "John Doe donated ₹5,000 to help Leena recover",
-            "2 hours ago"
+                R.drawable.img_pet1,
+                "John Doe donated ₹5,000 to help Leena recover",
+                "2 hours ago"
         ));
-        
+
         notifications.add(new Notification(
-            R.drawable.img_pet2,
-            "Sarah Smith shared Oliver's story",
-            "5 hours ago"
+                R.drawable.img_pet2,
+                "Sarah Smith shared Oliver's story",
+                "5 hours ago"
         ));
-        
+
         notifications.add(new Notification(
-            R.drawable.img_pet3,
-            "Mike Johnson commented on Fluff's progress",
-            "1 day ago"
+                R.drawable.img_pet3,
+                "Mike Johnson commented on Fluff's progress",
+                "1 day ago"
         ));
-        
+
         adapter.submitList(notifications);
         updateEmptyState(notifications);
     }

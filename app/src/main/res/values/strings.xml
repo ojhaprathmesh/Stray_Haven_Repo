@@ -18,7 +18,7 @@
     <string name="content_adv1">Unlock exclusive rewards with your GEM subscription. Subscribe Now!</string>
     <string name="btn_adv1"><![CDATA[Subscribe & Win]]></string>
     <string name="desc_adv1">Donation image</string>
-    <string name="heading_adv2">Download Form 108E</string>
+    <string name="heading_adv2">Download Form 10BE</string>
     <string name="content_adv2">Claim tax benefits on your generous donations by downloading the form</string>
     <string name="btn_adv2">Download</string>
     <string name="desc_adv2">Form document</string>
@@ -46,4 +46,28 @@
     <string name="desc_nav_button2">Navigation option 2</string>
     <string name="desc_nav_button3">Navigation option 3</string>
     <string name="desc_nav_button4">Navigation option 4</string>
+    <string name="profile">Profile</string>
+    <string name="your_impact">YOUR IMPACT</string>
+    <string name="lives_supported">Lives Supported</string>
+    <string name="total_donation">Total Donation</string>
+    <string name="become_a_gem">Become a GEM</string>
+    <string name="donation_history">Donation History</string>
+    <string name="refer_earn">Refer &amp; Earn</string>
+    <string name="support">Support</string>
+    <string name="edit_profile">Edit Profile —></string>
+    <string name="desc_profile_image">Profile image</string>
+    <string name="desc_back">Back button</string>
+    <string name="desc_forward">Redirect</string>
+    <string name="desc_live_icon">Donation icon</string>
+    <string name="desc_donation_icon">Hospital icon</string>
+    <string name="desc_gem_icon">GEM icon</string>
+    <string name="desc_history_icon">History icon</string>
+    <string name="desc_refer_icon">Referral icon</string>
+    <string name="desc_support_icon">Support icon</string>
+    <string name="desc_phone_icon">Phone icon</string>
+    <string name="desc_email_icon">Email icon</string>
+    <string name="support_overlay_title">Contact Support</string>
+    <string name="username">Prathmesh Ojha</string>
+    <string name="support_number">8595608059</string>
+    <string name="support_mail">support@strayhaven.com</string>
 </resources>

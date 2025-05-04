@@ -1,12 +1,11 @@
 package app.main.activity;
 
-import static app.main.util.UI.*;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -22,6 +21,7 @@ import java.util.List;
 import app.main.R;
 import app.main.adapter.ViewPagerAdapter;
 import app.main.component.FloatingMenuManager;
+import app.main.util.UI;
 
 public class HomeActivity extends BaseActivity {
 
@@ -42,13 +42,18 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home); // Set the content view to the corresponding XML layout
 
-        enforceLightMode();
-        applySystemInsets(this, findViewById(R.id.home));
-        welcomeUser();
-        populateStoryTray(this, findViewById(R.id.story_tray), 10);
+        // Set up UI with common configurations
+        setupUI(findViewById(R.id.home));
+
+        // Show welcome message
+        UI.welcomeUser(this);
+
+        // Initialize UI components
+        UI.populateStoryTray(this, findViewById(R.id.story_tray), 10);
         setupAdvCarousel();
         setupFloatingMenu();
         setupRedirectButtons();
+        setupTopMenuButtons();
     }
 
     @Override
@@ -107,49 +112,84 @@ public class HomeActivity extends BaseActivity {
         View button2 = findViewById(R.id.nav_button2);
         View button3 = findViewById(R.id.nav_button3);
         View button4 = findViewById(R.id.nav_button4);
-        
+
         FloatingMenuManager menuManager = new FloatingMenuManager(
                 mainButton, button1, button2, button3, button4);
-        
+
         // Set click listeners for each button
         menuManager.setButton1ClickListener(v -> {
             Toast.makeText(this, "Button 1 clicked", Toast.LENGTH_SHORT).show();
             // Add your action here
         });
-        
+
         menuManager.setButton2ClickListener(v -> {
             Toast.makeText(this, "Button 2 clicked", Toast.LENGTH_SHORT).show();
             // Add your action here
         });
-        
+
         menuManager.setButton3ClickListener(v -> {
             Toast.makeText(this, "Button 3 clicked", Toast.LENGTH_SHORT).show();
             // Add your action here
         });
-        
+
         menuManager.setButton4ClickListener(v -> {
             Toast.makeText(this, "Button 4 clicked", Toast.LENGTH_SHORT).show();
             // Add your action here
         });
     }
-    
+
     private void setupRedirectButtons() {
         // Set up click listener for the "Contact the nearest NGO" section
         ConstraintLayout contactRedirect = findViewById(R.id.redirect_contact);
         if (contactRedirect != null) {
             contactRedirect.setOnClickListener(v -> {
-                // Launch the NGO Details Activity
+                // Launch the NGO Details Activity with shared element transition
                 Intent intent = new Intent(HomeActivity.this, NGODetailsActivity.class);
-                startActivity(intent);
+
+                View floatingMenuContainer = findViewById(R.id.floating_menu_container);
+
+                // Create the transition
+                androidx.core.app.ActivityOptionsCompat options =
+                        androidx.core.app.ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                this,
+                                floatingMenuContainer,
+                                "floating_menu"
+                        );
+
+                startActivity(intent, options.toBundle());
             });
         }
-        
+
         // Set up click listener for the invitation code section (if needed in the future)
         ConstraintLayout invitationRedirect = findViewById(R.id.redirect_invitation);
         if (invitationRedirect != null) {
             invitationRedirect.setOnClickListener(v -> {
                 Toast.makeText(this, "Invitation code feature coming soon!", Toast.LENGTH_SHORT).show();
                 // Add the invitation code functionality here when ready
+            });
+        }
+    }
+
+    private void setupTopMenuButtons() {
+        // Set up profile button click listener
+        ImageButton profileButton = findViewById(R.id.profile);
+        if (profileButton != null) {
+            profileButton.setOnClickListener(v -> {
+                // Navigate to profile activity with transition
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                // Apply custom transition animation
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            });
+        }
+
+        // Set up notification button click listener
+        ImageButton notificationButton = findViewById(R.id.notification);
+        if (notificationButton != null) {
+            notificationButton.setOnClickListener(v -> {
+                // Navigate to notifications activity (already implemented)
+                Intent intent = new Intent(HomeActivity.this, NotificationsActivity.class);
+                startActivity(intent);
             });
         }
     }

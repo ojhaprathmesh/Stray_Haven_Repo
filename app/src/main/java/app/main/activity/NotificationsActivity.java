@@ -6,7 +6,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,7 +16,7 @@ import app.main.R;
 import app.main.adapter.NotificationAdapter;
 import app.main.model.Notification;
 
-public class NotificationsActivity extends AppCompatActivity {
+public class NotificationsActivity extends BaseActivity {
 
     private RecyclerView recyclerView;
     private TextView emptyStateText;
@@ -27,6 +26,9 @@ public class NotificationsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
+
+        // Set up UI with common configurations
+        setupUI(findViewById(android.R.id.content));
 
         // Set up back navigation
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {

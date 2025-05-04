@@ -1,5 +1,8 @@
 package app.main.model;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class PetDonation {
     private final int imageResId;
     private final String description;
@@ -23,32 +26,23 @@ public class PetDonation {
         return description;
     }
 
-    public double getAmountRaised() {
-        return amountRaised;
-    }
-
-    public double getAmountNeeded() {
-        return amountNeeded;
-    }
-
-    public int getDaysLeft() {
-        return daysLeft;
-    }
-
     public int getProgressPercentage() {
         if (amountNeeded == 0) return 0;
         return (int) ((amountRaised / amountNeeded) * 100);
     }
 
     public String getAmountRaisedFormatted() {
-        return String.format("₹%.2f raised", amountRaised);
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return currencyFormat.format(amountRaised) + " raised";
     }
 
     public String getAmountNeededFormatted() {
-        return String.format("₹%.2f needed", amountNeeded);
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.getDefault());
+        return currencyFormat.format(amountNeeded) + " needed";
     }
 
     public String getDaysLeftFormatted() {
-        return String.format("%d Days Left", daysLeft);
+        NumberFormat numberFormat = NumberFormat.getIntegerInstance(Locale.getDefault());
+        return numberFormat.format(daysLeft) + " Days Left";
     }
 } 

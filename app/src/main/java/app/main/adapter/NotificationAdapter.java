@@ -51,24 +51,24 @@ public class NotificationAdapter extends ListAdapter<Notification, NotificationA
     @Override
     public void onBindViewHolder(@NonNull NotificationViewHolder holder, int position) {
         Notification notification = getItem(position);
-        
+
         holder.userImage.setImageResource(notification.getUserImage());
         holder.notificationText.setText(notification.getMessage());
         holder.timestamp.setText(notification.getTimestamp());
-        
+
         // Set like button state
         holder.likeButton.setSelected(notification.isLiked());
-        
+
         // Set like button click listener
         holder.likeButton.setOnClickListener(v -> {
             boolean newLikedState = !notification.isLiked();
             notification.setLiked(newLikedState);
             holder.likeButton.setSelected(newLikedState);
-            
+
             // Log the like action
             String action = newLikedState ? "Liked" : "Unliked";
             Log.d(TAG, action + " notification: " + notification.getMessage());
-            
+
             // Update tint color
             if (newLikedState) {
                 holder.likeButton.setColorFilter(ContextCompat.getColor(holder.itemView.getContext(), R.color.red));
@@ -76,18 +76,18 @@ public class NotificationAdapter extends ListAdapter<Notification, NotificationA
                 holder.likeButton.setColorFilter(ContextCompat.getColor(holder.itemView.getContext(), R.color.black));
             }
         });
-        
+
         // Set initial tint color
         if (notification.isLiked()) {
             holder.likeButton.setColorFilter(ContextCompat.getColor(holder.itemView.getContext(), R.color.red));
         } else {
             holder.likeButton.setColorFilter(ContextCompat.getColor(holder.itemView.getContext(), R.color.black));
         }
-        
+
         // Set CardView background based on read status using the cardBackgroundColor attribute
         ((androidx.cardview.widget.CardView) holder.itemView).setCardBackgroundColor(
-            ContextCompat.getColor(holder.itemView.getContext(), 
-                notification.isRead() ? R.color.white : R.color.notification_unread)
+                ContextCompat.getColor(holder.itemView.getContext(),
+                        notification.isRead() ? R.color.white : R.color.notification_unread)
         );
     }
 
