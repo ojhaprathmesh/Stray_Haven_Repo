@@ -37,6 +37,9 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        
+        // Set up UI with common configurations
+        setupUI(findViewById(R.id.splash_root));
 
         // Initialize views
         rootLayout = findViewById(R.id.splash_root);

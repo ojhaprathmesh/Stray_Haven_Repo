@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import app.main.R;
 
-public class SP2Activity extends AppCompatActivity {
+public class SP2Activity extends BaseActivity {
 
     private Spinner currencySpinner;
     private EditText amountInput;
@@ -30,6 +30,9 @@ public class SP2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sp2);
+
+        // Set up UI with common configurations
+        setupUI(findViewById(android.R.id.content));
 
         // Initialize views
         currencySpinner = findViewById(R.id.currency_spinner);

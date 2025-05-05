@@ -8,11 +8,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import app.main.R;
 
-public class SP1Activity extends AppCompatActivity {
+public class SP1Activity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sp1);
+
+        // Set up UI with common configurations
+        setupUI(findViewById(android.R.id.content));
 
         // Set up click listeners for the Subscribe & Win buttons
         setupSubscribeButtons();
