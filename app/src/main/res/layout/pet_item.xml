@@ -1,0 +1,31 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="160dp"
+    android:layout_margin="24dp"> <!-- Changed from cardElevation to elevation -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/pet_bg"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/petName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pet Name"
+            android:fontFamily="@font/jetbrainsmono"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="28dp" />
+        <ImageView
+            android:id="@+id/petImage"
+            android:layout_marginTop="10dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop" />
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

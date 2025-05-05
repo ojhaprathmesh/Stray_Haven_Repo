@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@drawable/rounded_background"
+        app:layout_constraintRight_toRightOf="parent"
+        android:elevation="8dp"
+        android:gravity="center">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:background="#07B2A8"
+            android:src="@drawable/menu" />
+
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Stray Haven"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp" />
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="15dp"
+            android:background="#07B2A8"
+            android:src="@drawable/notification"
+            app:tint="@color/black" />
+        <ImageButton
+            android:layout_width="28dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:background="#07B2A8"
+
+            android:padding="0dp"
+            android:src="@drawable/search" />
+    </LinearLayout>
+
+    <!-- Donation Banner -->
+    <LinearLayout
+        android:id="@+id/donationBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_bg"
+        android:padding="8dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Get exclusive tax benefits on all your Donation."
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textFontWeight="800"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/jetbrainsmono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Donate Now"
+                android:backgroundTint="#07B2A8"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:src="@drawable/doggy" />
+    </LinearLayout>
+
+    <!-- Categories -->
+    <TextView
+        android:id="@+id/categoriesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:textFontWeight="1000"
+        android:textStyle="bold"
+        android:fontFamily="@font/jetbrainsmono"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/donationBanner"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/categoriesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:gravity="center
+"
+        app:layout_constraintTop_toBottomOf="@id/categoriesTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Add category icons -->
+        <ImageView
+            android:src="@drawable/cat_icon"
+            android:layout_width="78dp"
+            android:layout_height="55dp"
+            android:background="@drawable/rounded_category"
+            android:layout_marginEnd="15dp"
+            android:elevation="13dp"
+            android:padding="8dp"/>
+        <ImageView
+            android:src="@drawable/dog_icon"
+            android:background="@drawable/rounded_category"
+            android:layout_width="78dp"
+            android:layout_height="55dp"
+            android:elevation="13dp"
+            android:layout_marginEnd="15dp"
+            android:padding="8dp"/>
+        <ImageView
+            android:src="@drawable/cow_icon"
+            android:layout_width="78dp"
+            android:layout_marginEnd="15dp"
+            android:layout_height="55dp"
+            android:elevation="13dp"
+            android:background="@drawable/rounded_category"
+            android:padding="8dp"/>
+
+        <ImageView
+            android:src="@drawable/fish_icon"
+            android:layout_width="78dp"
+            android:layout_marginEnd="15dp"
+            android:elevation="13dp"
+
+            android:background="@drawable/rounded_category"
+            android:layout_height="55dp"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+
+    <!-- Pets Section -->
+    <TextView
+        android:id="@+id/petsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pets"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:fontFamily="@font/jetbrainsmono"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/categoriesLayout"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/petRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/petsTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
