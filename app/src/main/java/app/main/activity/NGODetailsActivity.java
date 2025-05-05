@@ -114,8 +114,9 @@ public class NGODetailsActivity extends BaseActivity {
         });
 
         floatingMenuManager.setButton3ClickListener(v -> {
-            Toast.makeText(this, "Button 3 clicked", Toast.LENGTH_SHORT).show();
-            // Add your action here
+            // Launch SP2Activity for donation
+            Intent intent = new Intent(this, SP2Activity.class);
+            startActivity(intent);
         });
 
         floatingMenuManager.setButton4ClickListener(v -> {
