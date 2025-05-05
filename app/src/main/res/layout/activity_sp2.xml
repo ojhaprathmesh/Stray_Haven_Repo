@@ -41,7 +41,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/jet_brains_mono__bold"
-                android:text="@string/donation_history"
+                android:text="@string/donation_page"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -408,7 +408,7 @@
             android:id="@+id/donate_button"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="DONATE MONTHLY"
+            android:text="DONATE"
             android:textColor="@android:color/white"
             android:backgroundTint="@color/orange"
             android:layout_below="@id/causes_layout"

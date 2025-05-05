@@ -4,7 +4,7 @@
     <string name="success_title">Success!</string>
     <string name="success_message">Thank you for donating!!\nYour donation means a lot to us and helps make the world a better place.</string>
     <string name="back_to_home">Back to Home</string>
-    <string name="donation_history">Donation History</string>
+    <string name="donation_page">Donation</string>
     <string name="choose_donation_amount">Choose The Donation Amount</string>
     <string name="choose_cause">Choose The Cause</string>
     <string name="donate_monthly">Donate Monthly</string>
@@ -69,6 +69,7 @@
     <string name="total_donation">Total Donation</string>
     <string name="become_a_gem">Become a GEM</string>
     <string name="refer_earn">Refer &amp; Earn</string>
+    <string name="donation_history">Donation History</string>
     <string name="support">Support</string>
     <string name="edit_profile">Edit Profile —></string>
     <string name="desc_profile_image">Profile image</string>
