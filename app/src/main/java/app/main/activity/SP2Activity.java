@@ -1,5 +1,6 @@
 package app.main.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -84,7 +85,14 @@ public class SP2Activity extends AppCompatActivity {
         donateButton.setOnClickListener(v -> {
             String amount = amountInput.getText().toString();
             if (!amount.isEmpty() && selectedCause != null) {
-                Toast.makeText(this, "Cause: " + selectedCause + ", Currency: " + selectedCurrency + ", Amount: " + amount, Toast.LENGTH_SHORT).show();
+                // Navigate to Success Activity
+                Intent intent = new Intent(SP2Activity.this, SuccessActivity.class);
+                // Pass donation data to success activity
+                intent.putExtra("cause", selectedCause);
+                intent.putExtra("currency", selectedCurrency);
+                intent.putExtra("amount", amount);
+                startActivity(intent);
+                finish(); // Close this activity
             } else {
                 Toast.makeText(this, "Please select a cause and enter an amount", Toast.LENGTH_SHORT).show();
             }

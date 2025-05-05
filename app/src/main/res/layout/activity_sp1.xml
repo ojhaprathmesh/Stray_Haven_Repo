@@ -85,6 +85,7 @@
                 android:padding="8dp" />
 
             <Button
+                android:id="@+id/btn_subscribe_top"
                 android:layout_width="345dp"
                 android:layout_height="48dp"
                 android:text="@string/subscribe_win"
@@ -239,6 +240,7 @@
 
         <!-- Bottom Subscribe & Win Button -->
         <Button
+            android:id="@+id/btn_subscribe_bottom"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="@string/subscribe_win"
