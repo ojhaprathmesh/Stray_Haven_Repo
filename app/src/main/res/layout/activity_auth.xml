@@ -195,7 +195,7 @@
             android:textAllCaps="false"
             android:textSize="18sp"
             android:textColor="#FFFFFF"
-            android:background="@drawable/bg_button_gradient"
+            android:background="@drawable/bg_tab_selected"
             android:layout_marginBottom="24dp" />
 
         <!-- Loading Indicator -->
