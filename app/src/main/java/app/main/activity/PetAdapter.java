@@ -1,6 +1,7 @@
 package app.main.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,16 @@ public class PetAdapter extends RecyclerView.Adapter<PetAdapter.PetViewHolder> {
         Pet pet = petList.get(position);
         holder.petName.setText(pet.getName());
         holder.petImage.setImageResource(pet.getImage());
+
+        // Set click listener on the item view
+        holder.itemView.setOnClickListener(v -> {
+            // Create intent to open AdoptionDetailsActivity
+            Intent intent = new Intent(context, AdoptionDetailsActivity.class);
+            // Pass the pet name and image resource to the AdoptionDetailsActivity
+            intent.putExtra("pet_name", pet.getName());
+            intent.putExtra("pet_image", pet.getImage());
+            context.startActivity(intent);
+        });
     }
 
     @Override

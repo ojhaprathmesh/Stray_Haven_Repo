@@ -73,4 +73,8 @@
     <string name="btn_sign_up">Sign Up</string>
     <string name="btn_log_in">Log In</string>
     <string name="default_web_client_id" translatable="false">1009300469001-placeholder.apps.googleusercontent.com</string>
+
+    <!-- Added missing strings for adoption details page -->
+    <string name="know_tofy">Breed: Mixed\nAge: 2 years\nGender: Male\nWeight: 15 kg\nColor: Brown and White\nNature: Friendly and Playful</string>
+    <string name="vet_info">Recent Vet Check-up: Last vet check-up was on January 15th, 2025, and this pet was cleared as healthy with no concerns.\n\nFlea/Tick Prevention: Currently on monthly flea and tick prevention medication.\n\nParasite Treatments: On heartworm prevention medication taken monthly.</string>
 </resources>

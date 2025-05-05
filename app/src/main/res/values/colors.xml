@@ -16,6 +16,7 @@
 
     <!-- Theme colors -->
     <color name="colorPrimary">#FF07B2A8</color>
+    <color name="teal_700">#018786</color>
     <color name="colorPrimaryDark">#FF059990</color>
     <color name="colorAccent">#FF7EBFF8</color>
 </resources>
