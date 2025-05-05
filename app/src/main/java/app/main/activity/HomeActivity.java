@@ -118,8 +118,16 @@ public class HomeActivity extends BaseActivity {
 
         // Set click listeners for each button
         menuManager.setButton1ClickListener(v -> {
-            Toast.makeText(this, "Button 1 clicked", Toast.LENGTH_SHORT).show();
-            // Add your action here
+            try {
+                Toast.makeText(this, "Opening Subscribe and Win...", Toast.LENGTH_SHORT).show();
+                // Launch SP1 Activity for Subscribe and Win
+                Intent intent = new Intent();
+                intent.setClass(HomeActivity.this, app.main.activity.SP1Activity.class);
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+            }
         });
 
         menuManager.setButton2ClickListener(v -> {
@@ -128,8 +136,15 @@ public class HomeActivity extends BaseActivity {
         });
 
         menuManager.setButton3ClickListener(v -> {
-            Toast.makeText(this, "Button 3 clicked", Toast.LENGTH_SHORT).show();
-            // Add your action here
+            try {
+                // Launch SP2Activity for donation
+                Intent intent = new Intent();
+                intent.setClass(HomeActivity.this, app.main.activity.SP2Activity.class);
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+            }
         });
 
         menuManager.setButton4ClickListener(v -> {

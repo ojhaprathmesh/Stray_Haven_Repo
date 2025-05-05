@@ -160,10 +160,8 @@ public class PetDonationsFragment extends Fragment implements PetDonationAdapter
 
     @Override
     public void onDonateClick(PetDonation petDonation, int position) {
-        Toast.makeText(
-                requireContext(),
-                "Donating to: " + petDonation.getDescription(),
-                Toast.LENGTH_SHORT
-        ).show();
+        // Launch SP2Activity for donation
+        Intent intent = new Intent(requireContext(), app.main.activity.SP2Activity.class);
+        startActivity(intent);
     }
 } 
