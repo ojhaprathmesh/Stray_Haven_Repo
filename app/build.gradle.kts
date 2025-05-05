@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.viewpager2)
     implementation(libs.recyclerview)
+    implementation(libs.firebase.firestore)
 
 
     testImplementation(libs.junit)
@@ -54,4 +55,7 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation("com.google.android.libraries.identity.googleid:googleid:1.1.0")
+
+    // Firebase Firestore for storing user data
+    implementation("com.google.firebase:firebase-firestore:25.1.0")
 }

@@ -23,7 +23,6 @@ import com.google.android.gms.auth.api.identity.Identity;
 import com.google.android.gms.auth.api.identity.SignInClient;
 import com.google.android.gms.auth.api.identity.SignInCredential;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.Task;
 
 import app.main.R;
 import app.main.util.AuthService;
@@ -331,7 +330,7 @@ public class AuthActivity extends BaseActivity {
      */
     private void handleForgotPassword() {
         String email = etEmail.getText().toString().trim();
-        
+
         // Show loading indicator
         setLoading(true);
         
