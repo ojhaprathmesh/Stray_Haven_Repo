@@ -1,5 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Stray Haven</string>
+    <string name="success_title">Success!</string>
+    <string name="success_message">Thank you for donating!!\nYour donation means a lot to us and helps make the world a better place.</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="donation_history">Donation History</string>
+    <string name="choose_donation_amount">Choose The Donation Amount</string>
+    <string name="choose_cause">Choose The Cause</string>
+    <string name="donate_monthly">Donate Monthly</string>
+    <string name="give_every_month">Give Every Month</string>
+    <string name="become_gem_donor">Become A GEM Donor</string>
+    <string name="gem_donor_description">Empower Change! Donate Monthly and Unlock Exclusive Rewards as a GEM donor.</string>
+    <string name="subscribe_win">Subscribe &amp; Win</string>
+    <string name="be_a_gem">BE A GEM</string>
+    <string name="card1_text">Becoming A life Saving GEM</string>
+    <string name="card2_text">Claim Tax Benefits</string>
+    <string name="card3_text">Win Exclusive Rewards</string>
+    <string name="card4_text">Track Impact</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="desc_logo">Logo</string>
     <string name="desc_notification">Notifications</string>
@@ -51,7 +68,6 @@
     <string name="lives_supported">Lives Supported</string>
     <string name="total_donation">Total Donation</string>
     <string name="become_a_gem">Become a GEM</string>
-    <string name="donation_history">Donation History</string>
     <string name="refer_earn">Refer &amp; Earn</string>
     <string name="support">Support</string>
     <string name="edit_profile">Edit Profile —></string>
@@ -73,4 +89,26 @@
     <string name="btn_sign_up">Sign Up</string>
     <string name="btn_log_in">Log In</string>
     <string name="default_web_client_id" translatable="false">1009300469001-placeholder.apps.googleusercontent.com</string>
+
+    <!-- SP2 Activity Strings -->
+    <string name="amount_750">₹ 750</string>
+    <string name="amount_1000">₹ 1000</string>
+    <string name="amount_1500">₹ 1500</string>
+    <string name="amount_hint">750</string>
+    <string name="cause1_title">Contribute Towards Animal Welfare</string>
+    <string name="cause1_description">Give Every Month to help provide shelter, and food to animals in need.</string>
+    <string name="cause2_title">Contribute Towards Creating Community</string>
+    <string name="cause2_description">Help build a stronger community for animal welfare and support.</string>
+    <string name="cause3_title">Support Animal in Medical Treatment</string>
+    <string name="cause3_description">Help provide medical care and treatment for injured and sick animals.</string>
+    <string name="cause4_title">Support Animal Needing Organ Transplant</string>
+    <string name="cause4_description">Help animals in need of critical organ transplants and specialized care.</string>
+
+    <!-- Currency array for SP2 Activity -->
+    <string-array name="currency_array">
+        <item>INR</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+    </string-array>
 </resources>

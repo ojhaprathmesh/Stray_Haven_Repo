@@ -1,5 +1,6 @@
 package app.main.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +35,13 @@ public class FundraisersActivity extends BaseActivity {
         // Create adapter with demo data (replace with real data from your database)
         List<PetDonation> donationsList = getDemoPetDonations();
         PetDonationAdapter petDonationAdapter = new PetDonationAdapter(donationsList);
+
+        // Set donate click listener
+        petDonationAdapter.setOnDonateClickListener((petDonation, position) -> {
+            // Launch SP2Activity for donation
+            Intent intent = new Intent(this, SP2Activity.class);
+            startActivity(intent);
+        });
         
         // Set adapter to RecyclerView
         fundraisersRecyclerView.setAdapter(petDonationAdapter);
