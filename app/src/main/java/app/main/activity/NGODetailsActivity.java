@@ -1,5 +1,6 @@
 package app.main.activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.transition.ChangeBounds;
@@ -80,8 +81,10 @@ public class NGODetailsActivity extends BaseActivity {
 
         // Initialize the adapter
         ngoAdapter = new NGOAdapter(this, getVisibleNGOs(ngoList), (ngo, position) -> {
-            Toast.makeText(this, "Clicked on " + ngo.getName(), Toast.LENGTH_SHORT).show();
-            // In a real app, navigate to NGO details screen
+            // Replace toast with an intent to start AdoptionActivity
+            Intent intent = new Intent(this, AdoptionActivity.class);
+            intent.putExtra("ngo_name", ngo.getName());
+            startActivity(intent);
         });
 
         // Set up the RecyclerView
