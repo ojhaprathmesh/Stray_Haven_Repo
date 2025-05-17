@@ -103,3 +103,52 @@ If you find bugs or issues, feel free to open an issue.
 This project is licensed under the MIT License - see the `LICENSE` file for details.
 
 ---
+
+## Contributors ✨
+
+Thanks goes to these wonderful people:
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://github.com/ojhaprathmesh">
+          <img src="https://avatars.githubusercontent.com/u/67790692?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Prathmesh Ojha"/><br />
+          <sub><b>Prathmesh Ojha</b></sub>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=ojhaprathmesh" title="Code">💻</a>
+      </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://github.com/27VAISHNAVIsINGH">
+          <img src="https://avatars.githubusercontent.com/u/179390886?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Vaishnavi Singh"/><br />
+          <sub><b>Vaishnavi Singh</b></sub>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=27VAISHNAVIsINGH" title="Code">💻</a>
+      </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://github.com/Anuj-pratap-019">
+          <img src="https://avatars.githubusercontent.com/u/195879214?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Anuj Pratap"/><br />
+          <sub><b>Anuj Pratap</b></sub>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=Anuj-pratap-019" title="Code">💻</a>
+      </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://github.com/JHANKARBANSAL">
+          <img src="https://avatars.githubusercontent.com/u/172628212?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Jhankar Bansal"/><br />
+          <sub><b>Jhankar Bansal</b></sub>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=JHANKARBANSAL" title="Code">💻</a>
+      </td>
+      <td align="center" valign="top" width="14.28%">
+        <a href="https://github.com/ayushs069">
+          <img src="https://avatars.githubusercontent.com/u/195754419?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Ayush Singh"/><br />
+          <sub><b>Ayush Singh</b></sub>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=ayushs069" title="Code">💻</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+---

@@ -1,0 +1,61 @@
+{
+  "projectName": "Stray_Haven_Repo",
+  "projectOwner": "ojhaprathmesh",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 80,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "ojhaprathmesh",
+      "name": "Prathmesh Ojha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/67790692?v=4",
+      "profile": "https://github.com/ojhaprathmesh",
+      "contributions": [
+        "Major Figma design and code contributions"
+      ]
+    },
+    {
+      "login": "27VAISHNAVIsINGH",
+      "name": "Vaishnavi Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/179390886?v=4",
+      "profile": "https://github.com/27VAISHNAVIsINGH",
+      "contributions": [
+        "Minor Figma design and code contributions"
+      ]
+    },
+    {
+      "login": "Anuj-pratap-019",
+      "name": "Anuj Pratap",
+      "avatar_url": "https://avatars.githubusercontent.com/u/195879214?v=4",
+      "profile": "https://github.com/Anuj-pratap-019",
+      "contributions": [
+        "Minor Figma design and code contributions"
+      ]
+    },
+    {
+      "login": "JHANKARBANSAL",
+      "name": "Jhankar Bansal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/172628212?v=4",
+      "profile": "https://github.com/JHANKARBANSAL",
+      "contributions": [
+        "Minor Figma design and code contributions"
+      ]
+    },
+    {
+      "login": "ayushs069",
+      "name": "Ayush Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/195754419?v=4",
+      "profile": "https://github.com/ayushs069",
+      "contributions": [
+        "Minor Figma design and code contributions"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": true
+}
