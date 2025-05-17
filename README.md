@@ -17,7 +17,7 @@
 
 ## 📸 Screenshots
 
-> _Add screenshots here in the future for better visual presentation._
+> _Will add screenshots here in the future for better visual presentation._
 
 ---
 
