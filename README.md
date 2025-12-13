@@ -13,11 +13,11 @@
 - 👤 **Profile Management**: Users can edit their profile and view history.
 - 🔒 **Secure Authentication**: Integrated with Firebase Authentication \& Google Sign-In.
 
----
+<!-- ---
 
 ## 📸 Screenshots
 
-> _Will add screenshots here in the future for better visual presentation._
+> _Will add screenshots here in the future for better visual presentation._ -->
 
 ---
 
@@ -82,12 +82,12 @@ StrayHaven/
 ```
 
 
----
+<!-- ---
 
 ## 🧪 Testing
 
 - **Unit tests:** JUnit
-- **UI tests:** Espresso
+- **UI tests:** Espresso -->
 
 ---
 
@@ -114,35 +114,35 @@ Thanks goes to these wonderful people:
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="20%">
         <a href="https://github.com/ojhaprathmesh">
-          <img src="https://avatars.githubusercontent.com/u/67790692?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Prathmesh Ojha"/><br />
+          <img src="https://avatars.githubusercontent.com/u/67790692?v=4?s=80" width="100%;" alt="Prathmesh Ojha"/><br />
           <sub><b>Prathmesh Ojha</b></sub>
-        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=ojhaprathmesh" title="Code">💻</a>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=ojhaprathmesh" title="Contribution">💻</a>
       </td>
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="20%">
         <a href="https://github.com/27VAISHNAVIsINGH">
-          <img src="https://avatars.githubusercontent.com/u/179390886?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Vaishnavi Singh"/><br />
+          <img src="https://avatars.githubusercontent.com/u/179390886?v=4?s=80" width="100%;" alt="Vaishnavi Singh"/><br />
           <sub><b>Vaishnavi Singh</b></sub>
-        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=27VAISHNAVIsINGH" title="Code">💻</a>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=27VAISHNAVIsINGH" title="Contribution">💻</a>
       </td>
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="20%">
         <a href="https://github.com/Anuj-pratap-019">
-          <img src="https://avatars.githubusercontent.com/u/195879214?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Anuj Pratap"/><br />
+          <img src="https://avatars.githubusercontent.com/u/195879214?v=4?s=80" width="100%;" alt="Anuj Pratap"/><br />
           <sub><b>Anuj Pratap</b></sub>
-        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=Anuj-pratap-019" title="Code">💻</a>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=Anuj-pratap-019" title="Contribution">💻</a>
       </td>
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="20%">
         <a href="https://github.com/JHANKARBANSAL">
-          <img src="https://avatars.githubusercontent.com/u/172628212?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Jhankar Bansal"/><br />
+          <img src="https://avatars.githubusercontent.com/u/172628212?v=4?s=80" width="100%;" alt="Jhankar Bansal"/><br />
           <sub><b>Jhankar Bansal</b></sub>
-        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=JHANKARBANSAL" title="Code">💻</a>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=JHANKARBANSAL" title="Contribution">💻</a>
       </td>
-      <td align="center" valign="top" width="14.28%">
+      <td align="center" valign="top" width="20%">
         <a href="https://github.com/ayushs069">
-          <img src="https://avatars.githubusercontent.com/u/195754419?v=4?s=80" width="80px;" style="border-radius: 50%;" alt="Ayush Singh"/><br />
+          <img src="https://avatars.githubusercontent.com/u/195754419?v=4?s=80" width="100%;" alt="Ayush Singh"/><br />
           <sub><b>Ayush Singh</b></sub>
-        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=ayushs069" title="Code">💻</a>
+        </a><br /><a href="https://github.com/ojhaprathmesh/Stray_Haven_Repo/commits?author=ayushs069" title="Contribution">💻</a>
       </td>
     </tr>
   </tbody>
